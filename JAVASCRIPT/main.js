@@ -93,8 +93,30 @@ if (savedTheme) {
 
 function openNav() {
     document.getElementById("myNav").style.width = "100%";
-  }
+}
   
   function closeNav() {
     document.getElementById("myNav").style.width = "0%";
-  }
+}
+
+document.getElementById("veille").addEventListener("click", function () {
+    if (!document.fullscreenElement) {
+        // Passe en plein écran
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.webkitRequestFullscreen) { // Pour Safari
+            document.documentElement.webkitRequestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) { // Pour IE/Edge
+            document.documentElement.msRequestFullscreen();
+        }
+    } else {
+        // Quitte le plein écran
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { // Pour Safari
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // Pour IE/Edge
+            document.msExitFullscreen();
+        }
+    }
+});

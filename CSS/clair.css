@@ -1,0 +1,52 @@
+/* clair.css - Thème Clair */
+
+body {
+    background-color: #fff;
+    color: #000;
+}
+
+.fixed-header {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.Site, .Amphi, .Salle {
+    background-color: #e3e3e3;
+    color: #000;
+}
+
+.Site:hover, .Amphi:hover, .Salle:hover {
+    background-color: #d1d1d1;
+}
+
+.button{
+    background-color: #e3e3e3;
+}
+
+.button:hover{
+    background-color: #d1d1d1;
+}
+
+.google{
+    background-color: #e3e3e3;
+}
+
+.google:hover{
+    background-color: #d1d1d1;
+}
+
+.google.clicked{
+    border: #ccc solid 3px;
+}
+
+.amu:hover{
+    color: white;
+}
+
+body::-webkit-scrollbar-track {
+    background: lightgrey;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background: grey;
+}

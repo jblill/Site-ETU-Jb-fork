@@ -1,0 +1,29 @@
+/* amoled.css - Thème AMOLED */
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+.fixed-header {
+    background-color: #111;
+    color: #fff;
+}
+
+.Site, .Amphi, .Salle {
+    background-color: #111;
+    color: #fff;
+}
+
+.Site:hover, .Amphi:hover, .Salle:hover {
+    background-color: #222;
+}
+
+.button{
+    background-color: #111;
+    color: white;
+}
+
+.button:hover{
+    background-color: #222;
+}

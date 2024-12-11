@@ -101,56 +101,26 @@ h1 {
     transform: scale(1.05);
 }
 
-#amphiNText, #amphiEText, #amphiOText,
-#I001Text, #I101Text, #I205Text {
+.info{
     display: none;
 }
 
-.carousel-container {
-    position: relative;
-    width: 100%;
-    max-width: 80%;
-    margin: 0 auto;    
-    justify-content: space-between;
-}
-
-.carousel-content {
+.Amphi:hover .name{
     display: none;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-between;
-    padding-bottom: 50px;
 }
 
-.carousel-content.active {
+.Amphi:hover .info{
     display: block;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    padding-bottom: 50px;
 }
 
-.carousel-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+.Salle:hover .name{
+    display: none;
 }
 
-.carousel-buttons button {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.Salle:hover .info {
+    display: block;
 }
 
-.carousel-buttons button:hover {
-    background-color: #555;
-}
 @media (max-width: 768px) {
     .Container {
         flex-direction: column;

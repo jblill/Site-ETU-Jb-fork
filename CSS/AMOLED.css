@@ -27,3 +27,7 @@ body {
 .button:hover{
     background-color: #222;
 }
+
+.respons img{
+    filter: invert(1);
+}

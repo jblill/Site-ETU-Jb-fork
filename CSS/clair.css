@@ -1,41 +1,52 @@
-/* sombre.css - Thème Sombre */
+/* clair.css - Thème Clair */
 
 body {
-    background-color: #121212;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
 }
 
 .fixed-header {
-    background-color: #1d1f22;
-    color: #fff;
+    background-color: #f1f1f1;
+    color: #333;
 }
 
 .Site, .Amphi, .Salle {
-    background-color: #1d1f22;
-    color: #fff;
+    background-color: #e3e3e3;
+    color: #000;
 }
 
 .Site:hover, .Amphi:hover, .Salle:hover {
-    background-color: #2d2f31;
+    background-color: #d1d1d1;
 }
 
 .button{
-    background-color: #121212;
-    color: white;
+    background-color: #e3e3e3;
 }
 
 .button:hover{
-    background-color: #2d2f31;
+    background-color: #d1d1d1;
+}
+
+.google{
+    background-color: #e3e3e3;
+}
+
+.google:hover{
+    background-color: #d1d1d1;
+}
+
+.google.clicked{
+    border: #ccc solid 3px;
+}
+
+.amu:hover{
+    color: white;
 }
 
 body::-webkit-scrollbar-track {
-    background: #1d1f22;
+    background: lightgrey;
 }
   
 body::-webkit-scrollbar-thumb {
-    background: #2d2f31;
-}
-
-.respons img{
-    filter: invert(1);
+    background: grey;
 }

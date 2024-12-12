@@ -1,5 +1,19 @@
-function redirectTo(url) {
-    window.open(url, '_blank');
+function redirectTo(url, newTab = true) {
+    if (url === "https://www.google.com/") {
+        setTimeout(() => {
+            if (newTab) {
+                window.open(url, '_blank');
+            } else {
+                window.location.href = url;
+            }
+        }, 800); // Attente de 800 ms
+    } else {
+        if (newTab) {
+            window.open(url, '_blank');
+        } else {
+            window.location.href = url;
+        }
+    }
 }
 
 function updateClock() {
@@ -13,11 +27,11 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const mainHeader = document.getElementById("main-header");
     let lastScrollTop = 0;
 
-    window.addEventListener("scroll", function () {
+    window.addEventListener("scroll", () => {
         const currentScrollTop = window.pageYOffset;
 
         if (currentScrollTop > lastScrollTop) {
@@ -29,53 +43,26 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         lastScrollTop = currentScrollTop;
     });
-});
 
-function redirectToG(url) {
-    setTimeout(() => {
-        // Redirection vers l'URL
-        window.open(url, '_blank');
-    
-        // Réinitialise le bouton après la redirection
-        const googleButton = document.querySelector('.google');
-        googleButton.classList.remove('clicked', 'hovered');
-        googleButton.style = "";
-    }, 800);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
     const googleButton = document.querySelector('.google');
-
-    googleButton.addEventListener('mouseenter', () => {
-        googleButton.classList.add('hovered');
-    });
-
-    googleButton.addEventListener('mouseleave', () => {
-        googleButton.classList.remove('hovered');
-    });
-
-    googleButton.addEventListener('click', () => {
-        googleButton.classList.remove('hovered');
-        googleButton.classList.add('clicked');
-        setTimeout(() => {
-            googleButton.classList.remove('clicked');
-        }, 2000);
-    });
+    if (googleButton) {
+        googleButton.addEventListener('mouseenter', () => googleButton.classList.add('hovered'));
+        googleButton.addEventListener('mouseleave', () => googleButton.classList.remove('hovered'));
+        googleButton.addEventListener('click', () => {
+            googleButton.classList.remove('hovered');
+            googleButton.classList.add('clicked');
+            setTimeout(() => googleButton.classList.remove('clicked'), 2000);
+        });
+    }
 });
-
 
 // Fonction pour afficher/masquer le menu
-function toggleMenu() {
-const menu = document.getElementById('theme-menu');
-menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-closeNav();
-}
-
-function toggleMenu2() {
-    const menu = document.getElementById('sommaire-menu');
+function toggleMenuById(menuId) {
+    const menu = document.getElementById(menuId);
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     closeNav();
-    }
+}
+
     
 
 // Fonction pour changer le fichier CSS
@@ -107,57 +94,27 @@ function closeNav() {
     document.getElementById("myNav").style.width = "0%";
 }
 
-function toggleNav() {
-    const nav = document.getElementById("myNav");
-    const theme = document.getElementById("myTheme");
+function togglePanel(panelIdToToggle, panelIdToClose) {
+    const panelToToggle = document.getElementById(panelIdToToggle);
+    const panelToClose = document.getElementById(panelIdToClose);
 
-    // Fermer le menu des thèmes si ouvert
-    if (theme.style.width === "100%") {
-        theme.style.width = "0%";
+    if (panelToClose.style.width === "100%") {
+        panelToClose.style.width = "0%";
     }
 
-    // Basculer l'état de myNav
-    nav.style.width = nav.style.width === "100%" ? "0%" : "100%";
+    panelToToggle.style.width = panelToToggle.style.width === "100%" ? "0%" : "100%";
 }
 
-function toggleTheme() {
-    const theme = document.getElementById("myTheme");
-    const nav = document.getElementById("myNav");
-
-    // Fermer la navigation si ouverte
-    if (nav.style.width === "100%") {
-        nav.style.width = "0%";
-    }
-
-    // Basculer l'état de myTheme
-    theme.style.width = theme.style.width === "100%" ? "0%" : "100%";
-}
-
-
-document.getElementById("veille").addEventListener("click", function () {
+function toggleFullScreen() {
     if (!document.fullscreenElement) {
-        // Passe en plein écran
-        if (document.documentElement.requestFullscreen) {
-            document.documentElement.requestFullscreen();
-        } else if (document.documentElement.webkitRequestFullscreen) { // Pour Safari
-            document.documentElement.webkitRequestFullscreen();
-        } else if (document.documentElement.msRequestFullscreen) { // Pour IE/Edge
-            document.documentElement.msRequestFullscreen();
-        }
+        const requestFullScreen = document.documentElement.requestFullscreen ||
+                                  document.documentElement.webkitRequestFullscreen ||
+                                  document.documentElement.msRequestFullscreen;
+        if (requestFullScreen) requestFullScreen.call(document.documentElement);
     } else {
-        // Quitte le plein écran
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { // Pour Safari
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { // Pour IE/Edge
-            document.msExitFullscreen();
-        }
+        const exitFullScreen = document.exitFullscreen ||
+                               document.webkitExitFullscreen ||
+                               document.msExitFullscreen;
+        if (exitFullScreen) exitFullScreen.call(document);
     }
-});
-
-
-function redirectToL(url) {
-    window.location.href = url;
-    closeNav();
 }

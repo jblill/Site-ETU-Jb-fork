@@ -292,7 +292,7 @@ h1 {
     right: 45px;
     font-size: 60px;
     color: white;
-    texte-decoration:none;
+    text-decoration:none;
 }
 
 @media screen and (max-height: 450px) {

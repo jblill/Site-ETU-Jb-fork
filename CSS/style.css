@@ -219,6 +219,7 @@ h1 {
 
 .menu {
     display: none;
+    backdrop-filter: blur(10px);
     position: absolute;
     top: 50px;
     right: 20px;
@@ -229,6 +230,7 @@ h1 {
 
 .menu2 {
     display: none;
+    backdrop-filter: blur(10px);
     position: absolute;
     top: 50px;
     left: 20px;

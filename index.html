@@ -16,7 +16,6 @@
         <div class="menu2" id="sommaire-menu">
             <div class="menu-item" onclick="redirectTo('#Prof',false)">Sites profs</div>
             <div class="menu-item" onclick="redirectTo('#Liens',false)">Liens utiles</div>
-            <div class="menu-item" onclick="redirectTo('#Anciens',false)">Anciens Sites</div>
             <div class="menu-item" onclick="redirectTo('#Carte',false)">Cartes des prises</div>
         </div>
         <span class="respons" onclick="togglePanel('myNav', 'myTheme')"><img width="40" height="40" src="https://img.icons8.com/ios/50/summary-list.png" alt="summary-list"></span>
@@ -31,7 +30,7 @@
         <span class="respons" onclick="togglePanel('myTheme', 'myNav')">☰</span>
     </header>
 
-    <div id="myTheme" class="overlay">
+    <section id="myTheme" class="overlay">
         <button class="closebtn" onclick="closeTheme()">&times;</button>
         <div class="overlay-content">
             <p>Changer de thème</p>
@@ -39,36 +38,35 @@
             <div class="menu-item" onclick="changeTheme('CSS/sombre.css')">Sombre</div>
             <div class="menu-item" onclick="changeTheme('CSS/AMOLED.css')">AMOLED</div>
         </div>
-    </div>
+    </section>
 
-    <div id="myNav" class="overlay">
+    <section id="myNav" class="overlay">
         <button class="closebtn" onclick="closeNav()">&times;</button>
         <div class="overlay-content">
             <p>Sommaire</p>
             <div class="menu-item" onclick="redirectTo('#Prof',true)">Sites profs</div>
             <div class="menu-item" onclick="redirectTo('#Liens',true)">Liens utiles</div>
-            <div class="menu-item" onclick="redirectTo('#Anciens',true)">Anciens Sites</div>
             <div class="menu-item" onclick="redirectTo('#Carte',true)">Cartes des prises</div>
         </div>
-    </div>
+    </section>
 
-    <div class="Container" style="flex-direction: column; align-items: center;">
+    <section class="Container" style="flex-direction: column; align-items: center;">
         <div class="Site google" onclick="redirectTo('https://www.google.com/',true)"><p>Google</p></div>
         <div class="Site amu" onclick="redirectTo('https://ent.univ-amu.fr/',true)"><p>AMU ENT</p></div>
-    </div>
+    </section>
 
     <h1 id="Prof">Liens Profs</h1>
-    <div class="Container">
+    <section class="Container">
         <div class="Site" onclick="redirectTo('https://ens.casali.me/accueil-enseignement/',true)">
             <p>Cours CASALI</p>
         </div>
         <div class="Site" onclick="redirectTo('https://mickael-martin-nevot.com/univ-amu/iut/but-informatique/',true)">
             <p>Cours NEVOT</p>
         </div>
-    </div>
+    </section>
 
     <h1 id="Liens">Liens Utiles</h1>
-    <div class="Container">
+    <section class="Container">
         <a class="Site" target="_blank" href="https://cplusplus.com/reference/cctype/?kw=cctype" title="Prédicats C++">
             <p>Prédicats C++</p>
         </a>
@@ -99,103 +97,103 @@
         <a class="Site" target="_blank" href="https://github.com/" title="GitHub">
             <p>GitHub</p>
         </a>
-    </div>
+    </section>
 
     <h1 id="Carte">Carte des prises</h1>
 
     <h2>Rez de chaussée</h2>
-    <div class="Container">
-    <div class="Salle">
-        <span class="name">I002</span>
-        <span class="info">Prise: Oui <br> 4G: 2 barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I003</span>
-        <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I004</span>
-        <span class="info">Prise: Oui <br> 4G: 1-2 barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I009</span>
-        <span class="info">Prise: Oui <br> 4G: 1 barre <br> IP: 10.203.28.***</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I010</span>
-        <span class="info">Prise: Oui <br> 4G: 0-1 barre <br> IP: 10.203.9.***</span>
-    </div>
-</div>
-<h2>Premier étage</h2>
-<div class="Container">
-    <div class="Salle">
-        <span class="name">I102</span>
-        <span class="info">Prise: Non <br> 4G: ? barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I104</span>
-        <span class="info">Prise: Oui <br> 4G: ? barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I106</span>
-        <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I107</span>
-        <span class="info">Prise: Non <br> 4G: ? barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I109</span>
-        <span class="info">Prise: Non <br> 4G: 1-4 barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I110</span>
-        <span class="info">Prise: Oui <br> 4G: ? barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I111</span>
-        <span class="info">Prise: Non <br> 4G: 2 barres <br> IP: ?</span>
-    </div>
-</div>
-<h2>Deuxième étage</h2>
-<div class="Container">
-    <div class="Salle">
-        <span class="name">I202</span>
-        <span class="info">Prise: Une seule <br> 4G: 1-2 barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I205</span>
-        <span class="info">Prise: Oui <br> 4G: 1-3 barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I206</span>
-        <span class="info">Prise: Non <br> 4G: 1-2 barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I207</span>
-        <span class="info">Prise: Oui <br> 4G: 2 barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I208</span>
-        <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I209</span>
-        <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I211</span>
-        <span class="info">Prise: non <br> 4G: 2 barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I212</span>
-        <span class="info">Prise: non <br> 4G: 2 barres <br> IP: ?</span>
-    </div>
-    <div class="Salle">
-        <span class="name">I213</span>
-        <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
-    </div>
-</div>
+    <section class="Container">
+        <div class="Salle">
+            <span class="name">I002</span>
+            <span class="info">Prise: Oui <br> 4G: 2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I003</span>
+            <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I004</span>
+            <span class="info">Prise: Oui <br> 4G: 1-2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I009</span>
+            <span class="info">Prise: Oui <br> 4G: 1 barre <br> IP: 10.203.28.***</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I010</span>
+            <span class="info">Prise: Oui <br> 4G: 0-1 barre <br> IP: 10.203.9.***</span>
+        </div>
+    </section>
+    <h2>Premier étage</h2>
+    <section class="Container">
+        <div class="Salle">
+            <span class="name">I102</span>
+            <span class="info">Prise: Non <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I104</span>
+            <span class="info">Prise: Oui <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I106</span>
+            <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I107</span>
+            <span class="info">Prise: Non <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I109</span>
+            <span class="info">Prise: Non <br> 4G: 1-4 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I110</span>
+            <span class="info">Prise: Oui <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I111</span>
+            <span class="info">Prise: Non <br> 4G: 2 barres <br> IP: ?</span>
+        </div>
+    </section>
+    <h2>Deuxième étage</h2>
+    <section class="Container">
+        <div class="Salle">
+            <span class="name">I202</span>
+            <span class="info">Prise: Une seule <br> 4G: 1-2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I205</span>
+            <span class="info">Prise: Oui <br> 4G: 1-3 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I206</span>
+            <span class="info">Prise: Non <br> 4G: 1-2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I207</span>
+            <span class="info">Prise: Oui <br> 4G: 2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I208</span>
+            <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I209</span>
+            <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I211</span>
+            <span class="info">Prise: non <br> 4G: 2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I212</span>
+            <span class="info">Prise: non <br> 4G: 2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I213</span>
+            <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+    </section>
 
     
 

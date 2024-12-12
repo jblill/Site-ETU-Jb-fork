@@ -16,6 +16,7 @@
         <div class="menu2" id="sommaire-menu">
             <div class="menu-item" onclick="redirectTo('#Prof',false)">Sites profs</div>
             <div class="menu-item" onclick="redirectTo('#Liens',false)">Liens utiles</div>
+            <div class="menu-item" onclick="redirectTo('#Anciens',false)">Anciens Sites</div>
             <div class="menu-item" onclick="redirectTo('#Carte',false)">Cartes des prises</div>
         </div>
         <span class="respons" onclick="togglePanel('myNav', 'myTheme')"><img width="40" height="40" src="https://img.icons8.com/ios/50/summary-list.png" alt="summary-list"/></span>
@@ -31,7 +32,7 @@
     </header>
 
     <div id="myTheme" class="overlay">
-        <a class="closebtn" onclick="closeTheme()">&times;</a>
+        <button class="closebtn" onclick="closeTheme()">&times;</button>
         <div class="overlay-content">
             <p>Changer de thème</p>
             <div class="menu-item" onclick="changeTheme('CSS/clair.css')">Clair</div>
@@ -41,11 +42,12 @@
     </div>
 
     <div id="myNav" class="overlay">
-        <a class="closebtn" onclick="closeNav()">&times;</a>
+        <button class="closebtn" onclick="closeNav()">&times;</button>
         <div class="overlay-content">
             <p>Sommaire</p>
             <div class="menu-item" onclick="redirectTo('#Prof',true)">Sites profs</div>
             <div class="menu-item" onclick="redirectTo('#Liens',true)">Liens utiles</div>
+            <div class="menu-item" onclick="redirectTo('#Anciens',true)">Anciens Sites</div>
             <div class="menu-item" onclick="redirectTo('#Carte',true)">Cartes des prises</div>
         </div>
     </div>

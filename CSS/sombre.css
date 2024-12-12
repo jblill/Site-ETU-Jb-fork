@@ -35,3 +35,7 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background: #2d2f31;
 }
+
+.respons img{
+    filter: invert(1);
+}

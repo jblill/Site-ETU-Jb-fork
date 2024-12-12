@@ -2,6 +2,11 @@ function redirectTo(url) {
     window.open(url, '_blank');
 }
 
+function redirectToL(url) {
+    window.location.href = url;
+}
+
+
 function updateClock() {
     const clockElement = document.getElementById('clock');
     const now = new Date();
@@ -64,23 +69,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
 // Fonction pour afficher/masquer le menu
 function toggleMenu() {
 const menu = document.getElementById('theme-menu');
 menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+closeNav();
 }
+
+function toggleMenu2() {
+    const menu = document.getElementById('sommaire-menu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    closeNav();
+    }
+    
 
 // Fonction pour changer le fichier CSS
 function changeTheme(theme) {
-const link = document.getElementById('theme-link');
-link.href = theme;
+    const link = document.getElementById('theme-link');
+    link.href = theme;
 
-// Sauvegarder le thème sélectionné dans le stockage local
-localStorage.setItem('selected-theme', theme);
+    // Sauvegarder le thème sélectionné dans le stockage local
+    localStorage.setItem('selected-theme', theme);
 
-// Masquer le menu après sélection
-document.getElementById('theme-menu').style.display = 'none';
+    // Masquer le menu après sélection
+    document.getElementById('theme-menu').style.display = 'none';
+    closeTheme()
 }
 
 // Appliquer le thème sauvegardé lors du chargement de la page
@@ -91,13 +104,40 @@ if (savedTheme) {
 }
 }
 
-function openNav() {
-    document.getElementById("myNav").style.width = "100%";
+function closeTheme() {
+    document.getElementById("myTheme").style.width = "0%";
 }
-  
-  function closeNav() {
+
+function closeNav() {
     document.getElementById("myNav").style.width = "0%";
 }
+
+function toggleNav() {
+    const nav = document.getElementById("myNav");
+    const theme = document.getElementById("myTheme");
+
+    // Fermer le menu des thèmes si ouvert
+    if (theme.style.width === "100%") {
+        theme.style.width = "0%";
+    }
+
+    // Basculer l'état de myNav
+    nav.style.width = nav.style.width === "100%" ? "0%" : "100%";
+}
+
+function toggleTheme() {
+    const theme = document.getElementById("myTheme");
+    const nav = document.getElementById("myNav");
+
+    // Fermer la navigation si ouverte
+    if (nav.style.width === "100%") {
+        nav.style.width = "0%";
+    }
+
+    // Basculer l'état de myTheme
+    theme.style.width = theme.style.width === "100%" ? "0%" : "100%";
+}
+
 
 document.getElementById("veille").addEventListener("click", function () {
     if (!document.fullscreenElement) {

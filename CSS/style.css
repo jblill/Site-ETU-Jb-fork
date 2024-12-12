@@ -9,6 +9,7 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     overflow-x: hidden;
     padding-top: 100px;
+    margin: 0;
 }
 
 body::-webkit-scrollbar {
@@ -26,9 +27,10 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
     z-index: 100;
     transition: transform 0.3s ease;
+    display: flex;
+    justify-content: space-between;
 }
 
 .fixed-header.slide-up {
@@ -72,6 +74,7 @@ h1 {
     cursor: pointer;
     text-align: center;
     font-size: 2em;
+    text-decoration: none;
 }
 
 .Salle{
@@ -160,6 +163,7 @@ h1 {
 
 .google.clicked{
     background-color: white;
+    color: white;
     width: 90%;
     height: 100px;
     scale: 0.9;
@@ -186,6 +190,7 @@ h1 {
     cursor: pointer;
     border-radius: 30px;
     transition: all 1s ease-in-out;
+    font-size: 1.5em;
     display: none;
 }
 
@@ -193,19 +198,14 @@ h1 {
     .google::before {
         margin-left: 20%;
     }
-    header{
-        display: flex;
+    .fixed-header{
         align-items: center;
         justify-content: space-around;
     }
-    .Container {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .Site, .Amphi, .Salle {
-        width: 80%;
-        margin: 10px 0;
+        width: 40%;
+        margin: 10px;
+        font-size: 1em;
     }
     .button{
         display: none;
@@ -216,12 +216,21 @@ h1 {
 
 }
 
-/* Menu déroulant pour le changement de thème */
 .menu {
     display: none;
     position: absolute;
     top: 50px;
     right: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu2 {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 20px;
     border: 1px solid #ccc;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -238,18 +247,13 @@ h1 {
 }
 
 .button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    margin-right: 20px;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 30px;
     transition: all 1s ease-in-out;
-}
-
-.button:hover menu{
-    display: block;
+    
 }
 
 .overlay {
@@ -292,7 +296,7 @@ h1 {
     right: 45px;
     font-size: 60px;
     color: white;
-    text-decoration:none;
+    text-decoration: none;
 }
 
 @media screen and (max-height: 450px) {

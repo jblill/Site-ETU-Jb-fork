@@ -2,11 +2,6 @@ function redirectTo(url) {
     window.open(url, '_blank');
 }
 
-function redirectToL(url) {
-    window.location.href = url;
-}
-
-
 function updateClock() {
     const clockElement = document.getElementById('clock');
     const now = new Date();
@@ -160,3 +155,9 @@ document.getElementById("veille").addEventListener("click", function () {
         }
     }
 });
+
+
+function redirectToL(url) {
+    window.location.href = url;
+    closeNav();
+}

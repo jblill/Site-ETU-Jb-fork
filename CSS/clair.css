@@ -43,6 +43,10 @@ body {
     color: white;
 }
 
+.ametice{
+    background-color: #e3e3e3;
+}
+
 body::-webkit-scrollbar-track {
     background: lightgrey;
 }

@@ -201,6 +201,26 @@ h1 {
     background-color: #004298;
 }
 
+.amu.hovered::before {
+    opacity: 1;
+    left: 5%;
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+.amu.clicked::before {
+    opacity: 1;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.amu.clicked{
+    background-color: white;
+    color: white;
+    width: 90%;
+    height: 100px;
+    scale: 0.9;
+}
+
 
 .ametice{
     width: 200px;
@@ -208,11 +228,11 @@ h1 {
     transition: all 0.6s ease-in-out;
 }
 
-.ametice:active{
+.ametice:hover{
+    width: 90%;
+    height: 100px;
     background-color: #5a0cb9;
 }
-
-
 
 .ametice:before{
     content: '';
@@ -228,6 +248,19 @@ h1 {
     opacity: 0;
     transition: all 0.6s ease-in-out;
 }
+
+.ametice:active{
+    background-color: #370771;
+}
+
+.ametice.clicked{
+    background-color: white;
+    color: white;
+    width: 90%;
+    height: 100px;
+    scale: 0.9;
+}
+
 
 .respons {
     border: none;
@@ -358,4 +391,9 @@ h1 {
     top: 15px;
     right: 35px;
     }
+}
+
+
+.subtext{
+    font-size: 17px;
 }

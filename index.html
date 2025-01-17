@@ -16,6 +16,7 @@
         <div class="menu2" id="sommaire-menu">
             <div class="menu-item" onclick="redirectTo('#Prof',false)">Sites profs</div>
             <div class="menu-item" onclick="redirectTo('#Liens',false)">Liens utiles</div>
+            <div class="menu-item" onclick="redirectTo('#Logiciel', false)">Logiciels utiles</div>
             <div class="menu-item" onclick="redirectTo('#Carte',false)">Cartes des prises</div>
         </div>
         <span class="respons" onclick="togglePanel('myNav', 'myTheme')"><img width="40" height="40" src="https://img.icons8.com/ios/50/summary-list.png" alt="summary-list"></span>
@@ -46,6 +47,7 @@
             <p>Sommaire</p>
             <div class="menu-item" onclick="redirectTo('#Prof',true)">Sites profs</div>
             <div class="menu-item" onclick="redirectTo('#Liens',true)">Liens utiles</div>
+            <div class="menu-item" onclick="redirectTo('#Logiciel', true)">Logiciels utiles</div>
             <div class="menu-item" onclick="redirectTo('#Carte',true)">Cartes des prises</div>
         </div>
     </section>
@@ -59,16 +61,16 @@
     <h1 id="Prof">Liens Profs</h1>
     <section class="Container">
         <div class="Site" onclick="redirectTo('https://ens.casali.me/accueil-enseignement/',true)">
-            <p>Cours CASALI</p>
-            <p class="subtext">C++</p>
+            <p class="name">Cours CASALI</p>
+            <p class="info">C++</p>
         </div>
         <div class="Site" onclick="redirectTo('https://mickael-martin-nevot.com/univ-amu/iut/but-informatique/',true)">
-            <p>Cours NEVOT</p>
-            <p class="subtext">Linux HTML CSS PHP SQL PLSQL</p>
+            <p class="name">Cours NEVOT</p>
+            <p class="info">Linux HTML CSS PHP SQL PLSQL</p>
         </div>
         <div class="Site" onclick="redirectTo('https://mmorancey.perso.math.cnrs.fr/TutorielPython.html',true)">
-            <p>Cours MORANCEY</p>
-            <p class="subtext">Python</p>
+            <p class="name">Cours MORANCEY</p>
+            <p class="info">Python</p>
         </div>
     </section>
 
@@ -78,20 +80,26 @@
             <p>VDI</p>
         </a>
         <a class="Site" target="_blank" href="https://cplusplus.com/reference/cctype/?kw=cctype" title="Prédicats C++">
-            <p>Prédicats C++</p>
+            <p class="name">Prédicats C++</p>
+            <p class="info">Liste des prédicats du langage C++.</p>
         </a>
         <a class="Site" target="_blank" href="https://chatgpt.com/" title="Si besoin d'explications">
-            <p>Chat GPT</p>
+            <p class="name">Chat GPT</p>
+            <p class="info">Intelligence Artificielle.</p>
         </a>
         <a class="Site" target="_blank" href="https://gemini.google.com/app?hl=fr" title="Si besoin d'explications">
-            <p>Gemini</p>
+            <p class="name">Gemini</p>
+            <p class="info">Intelligence Artificielle (Google).</p>
+
         </a>
         <a class="Site" target="_blank" href="https://claude.ai/" title="Si besoin d'explications">
-            <p>Claude</p>
+            <p class="name">Claude</p>
+            <p class="info">Intelligence Artificielle.</p>
+
         </a>
         <a class="Site" target="_blank" href="https://www3.ntu.edu.sg/home/ehchua/programming/index.html">
-            <p>YAIP Java</p>
-            <p class="subtext">Exercices de Java pour la ressource R2.01</p>
+            <p class="name">YAIP Java</p>
+            <p class="info">Exercices de Java pour la ressource R2.01.</p>
         </a>
         <a class="Site" target="_blank" href="https://distrosea.com/fr/" title="Distributions Linux">
             <p>Distrosea</p>
@@ -109,27 +117,34 @@
             <p>Instagram</p>
         </a>
         <a class="Site" target="_blank" href="https://www.w3schools.com/howto/" title="Tutoriels web">
-            <p>w3schools</p>
+            <p class="name">w3schools</p>
+            <p class="info">Site web éducatif pour l'apprentissage informatique.</p>
         </a>
         <a class="Site" target="_blank" href="https://www.figma.com/fr-fr/" title="Design web">
-            <p>Figma</p>
+            <p class="name">Figma</p>
+            <p class="info">Editeur de graphiques et outil de prototypage.</p>
         </a>
         <a class="Site" target="_blank" href="https://github.com/" title="GitHub">
-            <p>GitHub</p>
+            <p class="name">GitHub</p>
+            <p class="info">Service en ligne d'hébergement de code.</p>
         </a>
         <a class="Site" target="_blank" href="https://drive.google.com/drive/my-drive?hl=fr" title="Pour partager des fichiers">
-            <p>Google Drive</p>
+            <p class="name">Google Drive</p>
+            <p class="info">Service de stockage cloud et suite bureautique.</p>
         </a>
         <a class="Site" target="_blank" href="https://docs.google.com/document/?usp=docs_home&hl=fr" title="Créer et partager des documents">
-            <p>Google Docs</p>
+            <p class="name">Google Docs</p>
+            <p class="info">Service de traitement de texte en ligne.</p>
         </a>
         
         <a class="Site" target="_blank" href="https://docs.google.com/presentation/?usp=slides_home&hl=fr" title="Créer et partager des présentations">
-            <p>Google Slides</p>
+            <p class="name">Google Slides</p>
+            <p class="info">Service de présentation en ligne.</p>
         </a>
         
         <a class="Site" target="_blank" href="https://docs.google.com/forms/?usp=forms_home&hl=fr" title="Créer et partager des formulaires">
-            <p>Google Forms</p>
+            <p class="name">Google Forms</p>
+            <p class="info">Service d'administration d'enquêtes en ligne.</p>
         </a>
         
         <a class="Site" target="_blank" href="https://docs.google.com/spreadsheets/?usp=sheets_home&hl=fr" title="Créer et partager des tableurs">
@@ -137,7 +152,8 @@
         </a>
         
         <a class="Site" href="#Veille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen(),changeTheme('CSS/AMOLED.css')">
-            <p>Veille</p>
+            <p class="name">Veille</p>
+            <p class="info">Mise en veille de l'ordinateur.</p>
         </a>
 
     </section>
@@ -145,40 +161,40 @@
     <h1 id="Logiciel">Logiciels utiles</h1>
     <section class="Container">
         <a class="Site" target="_blank" href="https://www.qt.io/download-dev" >
-            <p>QT Creator</p>
-            <p class="subtext">C++</p>
+            <p class="name">QT Creator</p>
+            <p class="info">Logiciel utilisé pour coder en C++.</p>
         </a>
         <a class="Site" target="_blank" href="https://code.visualstudio.com/download">
-            <p>Visual Studio Code</p>
-            <p class="subtext">Général</p>
+            <p class="name">Visual Studio Code</p>
+            <p class="info">Editeur de code extensible.</p>
         </a>
-        <a class="Site" target="_blank" href="https://www.jetbrains.com/idea/download/?section=windows">
-            <p>IntelliJ Idea</p>
-            <p class="subtext">Général</p>
+        <a class="Site" target="_blank" href="https://www.jetbrains.com/fr-fr/lp/toolbox/">
+            <p class="name">JetBrains Toolbox</p>
+            <p class="info">Suite d'outils de développement professionnel.</p>
         </a>
         <a class="Site" target="_blank" href="https://www.netacad.com/fr/resources/lab-downloads?courseLang=fr-FR">
-            <p>Packet Tracer</p>
-            <p class="subtext">Réseaux</p>
+            <p class="name">Packet Tracer</p>
+            <p class="info">Simulateur de matériel réseau Cisco.</p>
         </a>
         <a class="Site" target="_blank" href="https://www.mysql.com/downloads/">
-            <p>MySQL</p>
-            <p class="subtext">SQL</p>
+            <p class="name">MySQL</p>
+            <p class="info">Système de gestion de base de données.</p>
         </a>
         <a class="Site" target="_blank" href="https://www.eclipse.org/downloads/">
-            <p>Eclipse</p>
-            <p class="subtext">Java</p>
+            <p class="name">Eclipse</p>
+            <p class="info">IDE open source utilisé pour coder en Java.</p>
         </a>
         <a class="Site" target="_blank" href="https://staruml.io/">
-            <p>StarUML</p>
-            <p class="subtext">Diagrammes</p>
+            <p class="name">StarUML</p>
+            <p class="info">Outil de génie logiciel dédié à la modélisation UML.</p>
         </a>
         <a class="Site" target="_blank" href="https://jupyter.org/install">
-            <p>Jupyter</p>
-            <p class="subtext">Python</p>
+            <p class="name">Jupyter</p>
+            <p class="info">Outil dédié à la programmation en Python. </p>
         </a>
         <a class="Site" target="_blank" href="https://www.spyder-ide.org/download/">
-            <p>Spyder</p>
-            <p class="subtext">Python</p>
+            <p class="name">Spyder</p>
+            <p class="info">Environnement de développement en Python.</p>
         </a>
 
 
@@ -200,7 +216,7 @@
         </div>
         <div class="Amphi">
             <span class="name">Amphi Ouest</span>
-            <span class="info">Prises: ? <br> 4G: ? barres </span>
+            <span class="info">Prises: Non <br> 4G: ? barres </span>
         </div>
     </section>
 

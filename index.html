@@ -11,6 +11,7 @@
 </head>
 <body>
 
+<!-- Barre de navigation -->
     <header id="main-header" class="fixed-header">
         <button class="button" onclick="toggleMenuById('sommaire-menu')">Sommaire</button>
         <div class="menu2" id="sommaire-menu">
@@ -31,6 +32,7 @@
         <span class="respons" onclick="togglePanel('myTheme', 'myNav')">☰</span>
     </header>
 
+<!-- Changement de thème -->
     <section id="myTheme" class="overlay">
         <button class="closebtn" onclick="closeTheme()">&times;</button>
         <div class="overlay-content">
@@ -52,12 +54,15 @@
         </div>
     </section>
 
+<!-- Barre de redirection vers des sites -->
     <section class="Container" style="flex-direction: column; align-items: center;">
         <div class="Site google" onclick="redirectTo('https://www.google.com/',true)"><p>Google</p></div>
         <div class="Site amu" onclick="redirectTo('https://ent.univ-amu.fr/',true)"><p>AMU ENT</p></div>
         <div class="Site ametice" onclick="redirectTo('https://ametice.univ-amu.fr/\n',true)"><p>AMeTICE</p></div>
 
     </section>
+
+<!-- Section dédiée aux cours des professeurs -->
     <h1 id="Prof">Liens Profs</h1>
     <section class="Container">
         <div class="Site" onclick="redirectTo('https://ens.casali.me/accueil-enseignement/',true)">
@@ -78,6 +83,7 @@
         </div>
     </section>
 
+<!--Section dédiée aux liens utiles au BUT Informatique.-->
     <h1 id="Liens">Liens Utiles</h1>
     <section class="Container">
         <a class="Site" target="_blank" href="https://labtech.univ-amu.fr/portal/webclient/#/launchitems" title="Machines virtuelles IUT">
@@ -169,6 +175,7 @@
 
     </section>
 
+<!--Section dédiée aux logiciels utiles afin de programmer en BUT Informatique-->
     <h1 id="Logiciel">Logiciels utiles</h1>
     <section class="Container">
         <a class="Site" target="_blank" href="https://www.qt.io/download-dev" >
@@ -211,10 +218,12 @@
 
 
 
-    </section>
 
+<!--Section dédiée à la cartes des prises dans l'IUT d'Aix-Marseille-->
+    </section>
     <h1 id="Carte">Carte des prises</h1>
 
+<!--Dans les amphithéâtres de l'IUT-->
     <h2>Amphis</h2>
     <section class="Container">
         <div class="Amphi">
@@ -230,6 +239,8 @@
             <span class="info">Prises: Non <br> 4G: ? barres </span>
         </div>
     </section>
+
+<!--Dans le département informatique-->
 
     <h2>Rez de chaussée</h2>
     <section class="Container">
@@ -326,7 +337,7 @@
     </section>
 
     
-
+<!--Mise en veille-->
     <h1>Zone de veille</h1>
     <p>Cette zone est faite pour reposer les écrans OLED</p>
 

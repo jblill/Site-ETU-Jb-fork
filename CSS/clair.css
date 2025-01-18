@@ -37,6 +37,7 @@ body {
 
 .google.clicked{
     border: #ccc solid 3px;
+    color: white !important;
 }
 
 .amu:hover{

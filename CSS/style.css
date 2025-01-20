@@ -121,6 +121,16 @@ h1 {
 
 
 
+.Site:hover .name{
+    display: none;
+}
+
+.Site:hover .info{
+    display: block;
+    font-size: 20px;
+}
+
+
 .google {
     position: relative;
     width: 200px;
@@ -394,7 +404,7 @@ h1 {
     }
 }
 
-
-.subtext{
-    font-size: 17px;
+.logo{
+    width: 40px;
+    height: 40px;
 }

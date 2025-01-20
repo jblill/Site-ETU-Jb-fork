@@ -106,7 +106,10 @@ function togglePanel(panelIdToToggle, panelIdToClose) {
 }
 
 function toggleFullScreen() {
+    const veilleElement = document.getElementById("veille");
+
     if (!document.fullscreenElement) {
+        veilleElement.style.display = "block";
         const requestFullScreen = document.documentElement.requestFullscreen ||
                                   document.documentElement.webkitRequestFullscreen ||
                                   document.documentElement.msRequestFullscreen;
@@ -117,4 +120,31 @@ function toggleFullScreen() {
                                document.msExitFullscreen;
         if (exitFullScreen) exitFullScreen.call(document);
     }
+}
+
+// Ajoute un gestionnaire d'événements pour détecter les changements de plein écran
+document.addEventListener("fullscreenchange", () => {
+    const veilleElement = document.getElementById("veille");
+    if (!document.fullscreenElement) {
+        veilleElement.style.display = "none";
+    }
+});
+
+// Données des salles avec leurs configurations réseau
+const roomConfig = {
+    I002: { ip: "10.203.28.***", Passerelle: "10.203.28.1" },
+    I004: { ip: "10.203.28.***", Passerelle: "10.203.28.1" },
+    I009: { ip: "10.203.28.***", Passerelle: "10.203.28.1" },
+    I010: { ip: "10.203.9.***", Passerelle: "10.203.9.1" },
+    I104: { ip: "10.203.28.***", Passerelle: "10.203.28.1" },
+};
+
+// Met à jour les champs en fonction de la salle sélectionnée
+function updateReseauConfig() {
+    const room = document.getElementById("select-salle").value;
+    const config = roomConfig[room] || { ip: "", Passerelle: "" };
+
+    // Mise à jour des champs
+    document.getElementById("ip").value = config.ip;
+    document.getElementById("Passerelle").value = config.Passerelle;
 }

@@ -344,12 +344,50 @@
         </div>
     </section>
 
+    <section class="Container" id="Selection-salle">
+        <h1>Sélection Connexion</h1>
+        <div class="selection-menu">
+            <label for="select-salle">Choisissez une salle :</label>
+            <select id="select-salle" class="select-input" onchange="updateReseauConfig()">
+                <option value="">-- Sélectionnez une salle --</option>
+                <option value="I002">I002</option>
+                <option value="I004">I004</option>
+                <option value="I009">I009</option>
+                <option value="I010">I010</option>
+                <option value="I104">I104</option>
+            </select>
+        </div>
+        
+        <div id="réseau-info" class="réseau-info">
+            <h2>Configuration Réseau</h2>
+            <form>
+                <div>
+                    <label for="ip">Adresse IP</label>
+                    <input id="ip" type="text" class="champ-entree" readonly>
+                </div>
+                <div>
+                    <label for="Passerelle">Passerelle</label>
+                    <input id="Passerelle" type="text" class="champ-entree" readonly>
+                </div>
+                <div>
+                    <label for="dns1">DNS préféré</label>
+                    <input id="dns1" type="text" class="champ-entree" value="10.193.51.5" readonly>
+                </div>
+                <div>
+                    <label for="dns2">Autre DNS</label>
+                    <input id="dns2" type="text" class="champ-entree" value="139.124.1.2" readonly>
+                </div>
+            </form>
+        </div>
+    </section>
     
-<!--Mise en veille-->
-    <h1>Zone de veille</h1>
-    <p>Cette zone est faite pour reposer les écrans OLED</p>
 
-    <div id="Veille" style="height: calc(100vh + 200px);"></div>
+<!--Mise en veille-->
+    <div id="veille" style="display: none;">
+        <h1>Zone de veille</h1>
+        <p>Cette zone est faite pour reposer les écrans OLED</p>
+        <div id="Veille" style="height: calc(100vh + 200px);"></div>
+    </div>
 
     <script src="JAVASCRIPT/main.js"></script>
 

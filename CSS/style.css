@@ -99,6 +99,10 @@ h1 {
     transform: scale(1.05);
 }
 
+.Site:active, .Amphi:hover, .Salle:hover{
+    background-color: #818181;
+}
+
 .info{
     display: none;
 }
@@ -483,3 +487,4 @@ form div {
 footer{
     padding: 30px;
 }
+

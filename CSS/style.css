@@ -15,7 +15,12 @@ body {
 body::-webkit-scrollbar {
     width: 12px;
 }
-  
+
+ul li{
+    list-style-type: none;
+
+}
+
 body::-webkit-scrollbar-thumb {
     border-radius: 3px;
 }
@@ -488,3 +493,14 @@ footer{
     padding: 30px;
 }
 
+.slides{
+    border: 2px black solid;
+    border-radius: 4px;
+    margin: 50px 20px;
+
+}
+
+
+.titreSlide{
+    margin: 10px;
+}

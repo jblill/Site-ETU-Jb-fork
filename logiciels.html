@@ -15,6 +15,7 @@
 <header id="main-header" class="fixed-header">
   <button class="button" onclick="toggleMenuById('sommaire-menu')">Sommaire</button>
   <div class="menu2" id="sommaire-menu">
+    <div class="menu-item" onclick="redirectTo('index.html', false)">Accueil</div>
     <div class="menu-item" onclick="redirectTo('prof.html',false)">Sites profs</div>
     <div class="menu-item" onclick="redirectTo('links.html',false)">Liens utiles</div>
     <div class="menu-item" onclick="redirectTo('logiciels.html', false)">Logiciels utiles</div>
@@ -51,6 +52,7 @@
   <button class="closebtn" onclick="closeNav()">&times;</button>
   <div class="overlay-content">
     <p>Sommaire</p>
+    <div class="menu-item" onclick="redirectTo('index.html', true)">Accueil</div>
     <div class="menu-item" onclick="redirectTo('prof.html',true)">Sites profs</div>
     <div class="menu-item" onclick="redirectTo('links.html',true)">Liens utiles</div>
     <div class="menu-item" onclick="redirectTo('logiciels.html', true)">Logiciels utiles</div>
@@ -59,6 +61,50 @@
   </div>
 </section>
 <hr>
+
+<!--Section dédiée aux logiciels utiles afin de programmer en BUT Informatique-->
+<h1 id="Logiciel">Logiciels utiles</h1>
+<section class="Container">
+  <a class="Site" target="_blank" href="https://www.jetbrains.com/fr-fr/lp/toolbox/">
+    <p class="name">JetBrains Toolbox</p>
+    <p class="info">Suite d'outils de développement professionnel.</p>
+  </a>
+  <a class="Site" target="_blank" href="https://code.visualstudio.com/download">
+    <p class="name">Visual Studio Code</p>
+    <p class="info">Editeur de code extensible.</p>
+  </a>
+  <a class="Site" target="_blank" href="https://www.qt.io/download-dev" >
+    <p class="name">QT Creator</p>
+    <p class="info">Logiciel utilisé pour coder en C++.</p>
+  </a>
+  <a class="Site" target="_blank" href="https://www.mysql.com/downloads/">
+    <p class="name">MySQL</p>
+    <p class="info">Système de gestion de base de données.</p>
+  </a>
+  <a class="Site" target="_blank" href="https://jupyter.org/install">
+    <p class="name">Jupyter</p>
+    <p class="info">Outil dédié à la programmation en Python. </p>
+  </a>
+  <a class="Site" target="_blank" href="https://www.spyder-ide.org/download/">
+    <p class="name">Spyder</p>
+    <p class="info">Environnement de développement en Python.</p>
+  </a>
+
+  <a class="Site" target="_blank" href="https://www.netacad.com/fr/resources/lab-downloads?courseLang=fr-FR">
+    <p class="name">Packet Tracer</p>
+    <p class="info">Simulateur de matériel réseau Cisco.</p>
+  </a>
+  <a class="Site" target="_blank" href="https://staruml.io/">
+    <p class="name">StarUML</p>
+    <p class="info">Outil de génie logiciel dédié à la modélisation UML.</p>
+  </a>
+  <a class="Site" target="_blank" href="https://www.eclipse.org/downloads/">
+    <p class="name">Eclipse</p>
+    <p class="info">IDE open source utilisé pour coder en Java.</p>
+  </a>
+
+</section>
+
 
 <script src="JAVASCRIPT/main.js"></script>
 <footer>

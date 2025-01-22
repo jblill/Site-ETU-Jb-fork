@@ -14,6 +14,7 @@
 <header id="main-header" class="fixed-header">
     <button class="button" onclick="toggleMenuById('sommaire-menu')">Sommaire</button>
     <div class="menu2" id="sommaire-menu">
+        <div class="menu-item" onclick="redirectTo('index.html', false)">Accueil</div>
         <div class="menu-item" onclick="redirectTo('prof.html',false)">Sites profs</div>
         <div class="menu-item" onclick="redirectTo('links.html',false)">Liens utiles</div>
         <div class="menu-item" onclick="redirectTo('logiciels.html', false)">Logiciels utiles</div>
@@ -50,6 +51,7 @@
     <button class="closebtn" onclick="closeNav()">&times;</button>
     <div class="overlay-content">
         <p>Sommaire</p>
+        <div class="menu-item" onclick="redirectTo('index.html', true)">Accueil</div>
         <div class="menu-item" onclick="redirectTo('prof.html',true)">Sites profs</div>
         <div class="menu-item" onclick="redirectTo('links.html',true)">Liens utiles</div>
         <div class="menu-item" onclick="redirectTo('logiciels.html', true)">Logiciels utiles</div>

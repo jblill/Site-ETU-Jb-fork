@@ -477,6 +477,13 @@ footer{
 
 }
 
+#github{
+    height: 60px;
+}
+
+#github:hover{
+    height: 70px;
+}
 
 .titreSlide{
     margin: 10px;

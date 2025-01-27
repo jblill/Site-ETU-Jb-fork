@@ -138,6 +138,7 @@ const roomConfig = {
     I010: { ip: "10.203.9.***", Passerelle: "10.203.9.1" },
     I102: { ip: "10.203.28.***", Passerelle: "10.203.28.1"},
     I104: { ip: "10.203.28.***", Passerelle: "10.203.28.1" },
+    I106: { ip: "10.203.28.***", Passerelle: "10.203.28.1"},
 };
 
 // Met à jour les champs en fonction de la salle sélectionnée

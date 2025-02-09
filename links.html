@@ -12,30 +12,53 @@ Informatique.">
 </head>
 <body>
 <!-- Barre de navigation -->
-<header id="main-header" class="fixed-header">
-    <button class="button" onclick="toggleMenuById('sommaire-menu')">Sommaire</button>
-    <div class="menu2" id="sommaire-menu">
-        <div class="menu-item" onclick="redirectTo('index.html', false)">Accueil</div>
-        <div class="menu-item" onclick="redirectTo('prof.html',false)">Sites profs</div>
-        <div class="menu-item" onclick="redirectTo('links.html',false)">Liens utiles</div>
-        <div class="menu-item" onclick="redirectTo('logiciels.html', false)">Logiciels utiles</div>
-        <div class="menu-item" onclick="redirectTo('#Carte',false)">Cartes des prises</div>
-        <div class="menu-item" onclick="redirectTo('#Selection-salle',true)">Connexion Réseau</div>
-    </div>
-    <span class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo" src="IMAGES/sommaire-logo.png"
-                                                                         alt="Logo affichant le sommaire"></span>
-    <div id="clock"></div>
-
-    <button class="button" onclick="toggleMenuById('theme-menu')">Changer de thème</button>
-    <div class="menu" id="theme-menu">
-        <div class="menu-item" onclick="changeTheme('CSS/clair.css')">Clair</div>
-        <div class="menu-item" onclick="changeTheme('CSS/sombre.css')">Sombre</div>
-        <div class="menu-item" onclick="changeTheme('CSS/AMOLED.css')">AMOLED</div>
-    </div>
-    <span class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.png"
-                                                                         alt="Logo affichant le changement de thème">
-        </span>
+<header id="main-header">
+    <nav>
+        <!-- Barre de Navigation téléphone -->
+        <div class="tel-header">
+            <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo" src="IMAGES/sommaire-logo.png" alt="Logo affichant le sommaire"></button>
+            <div id="clock"></div>
+            <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.png" alt="Logo affichant le changement de thème"></button>
+        </div>
+        <!-- Barre de Navigation Ordinateur-->
+        <div class="navigation">
+            <a href="https://github.com/TORCHIN-Maxence-24020376/Site-ETU">Lien du github</a>
+            <a href="#" id="navigation">Navigation</a>
+            <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen(),changeTheme('CSS/AMOLED.css')">Veille</a>
+            <!--Rajouter des liens ici-->
+        </div>
+    </nav>
+    <a href="#" id="theme" class="disparait"><img class="logo" src="IMAGES/soleil-logo.png" alt="Logo affichant le changement de thème"></a>
 </header>
+<section id="navigation-contenu" class="mega-menu">
+    <div><h3><a href="index.html" target="_blank">Accueil</a></h3></div>
+    <div>
+        <h4>AUTRES PAGES</h4>
+        <ul>
+            <li><a href="prof.html">Sites des profs</a></li>
+            <li><a href="links.html">Liens utiles</a></li>
+            <li><a href="logiciels.html">Logiciels utiles</a></li>
+            <li><a href="carte.html">Carte des prises</a></li>
+            <li><a href="carte.html#Selection-salle">Connexion réseau</a></li>
+        </ul>
+        
+        <p class="tkt-frr">.</p>
+    </div>
+    <div>
+        <h4>LIENS UTILES</h4>
+        <p>Grace à cette page, vous pouvez accéder à une grande quantité de liens utiles pour le cursus de BUT Informatique à l'IUT d'Aix-Marseille.</p>
+    </div>
+</section>
+<section id="theme-contenu" class="mega-menu">
+    <div><h3>Changer de thème</h3></div>
+    
+    <article>
+        <div onclick="changeTheme('CSS/clair.css')">Clair</div>
+        <div onclick="changeTheme('CSS/sombre.css')">Sombre</div>
+        <div onclick="changeTheme('CSS/AMOLED.css')">AMOLED</div>
+    </article>
+    <p class="tkt-frr">.</p>
+</section>
 
 <!-- Changement de thème -->
 <section id="myTheme" class="overlay">
@@ -56,8 +79,9 @@ Informatique.">
         <div class="menu-item" onclick="redirectTo('prof.html',true)">Sites profs</div>
         <div class="menu-item" onclick="redirectTo('links.html',true)">Liens utiles</div>
         <div class="menu-item" onclick="redirectTo('logiciels.html', true)">Logiciels utiles</div>
-        <div class="menu-item" onclick="redirectTo('#Carte',true)">Cartes des prises</div>
-        <div class="menu-item" onclick="redirectTo('#Selection-salle',true)">Connexion Réseau</div>
+        <div class="menu-item" onclick="redirectTo('carte.html',true)">Cartes des prises</div>
+        <div class="menu-item" onclick="redirectTo('carte.html#Selection-salle',true)">Connexion Réseau</div>
+        <div class="menu-item" onclick="redirectTo('#modeVeille'),toggleFullScreen(),changeTheme('CSS/AMOLED.css')">Veille</div>
     </div>
 </section>
 
@@ -163,6 +187,14 @@ Informatique.">
     </a>
 
 </section>
+
+<!--Mise en veille-->
+<div id="veille" style="display: none;">
+    <h1>Zone de veille</h1>
+    <p>Cette zone est faite pour reposer les écrans OLED</p>
+    <p>(Apparait et disparait si vous vous mettez en plein écran)</p>
+    <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
+</div>
 <script src="JAVASCRIPT/main.js"></script>
 <footer>
     <section>

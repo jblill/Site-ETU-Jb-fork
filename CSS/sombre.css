@@ -5,7 +5,7 @@ body {
     color: #fff;
 }
 
-.fixed-header {
+header {
     background-color: #1d1f22;
     color: #fff;
 }
@@ -36,7 +36,7 @@ body::-webkit-scrollbar-thumb {
     background: #2d2f31;
 }
 
-.respons img{
+.logo{
     filter: invert(1);
 }
 
@@ -46,4 +46,30 @@ body::-webkit-scrollbar-thumb {
 
 #github{
     filter: invert(1);
+}
+
+.navigation a {
+    color: white;
+}
+
+.navigation a:hover{
+    background-color: #2d2f31;
+}
+
+.mega-menu{
+    background-color: #2d2f31;
+}
+
+
+a{
+    color: rgb(139, 209, 255);
+}
+
+.tkt-frr{
+    color: #2d2f31;
+}
+
+
+#theme-contenu article div:hover{
+    background-color: #121212;
 }

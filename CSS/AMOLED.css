@@ -5,7 +5,7 @@ body {
     color: #fff;
 }
 
-.fixed-header {
+header {
     background-color: #111;
     color: #fff;
 }
@@ -28,7 +28,7 @@ body {
     background-color: #222;
 }
 
-.respons img{
+.logo{
     filter: invert(1);
 }
 
@@ -38,4 +38,30 @@ body {
 
 #github{
     filter: invert(1);
+}
+
+.navigation a {
+    color: white;
+}
+
+.navigation a:hover{
+    background-color: #292929;
+}
+
+.mega-menu{
+    background-color: #292929;
+}
+
+a{
+    color: rgb(96, 213, 229);
+}
+
+
+.tkt-frr{
+    color: #292929;
+}
+
+
+#theme-contenu article div:hover{
+    background-color: #000;
 }

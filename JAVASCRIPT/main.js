@@ -213,19 +213,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-async function loadReadme() {
-    try {
-        const response = await fetch('README.md'); // Charge le fichier
-        if (!response.ok) throw new Error('Impossible de charger le README.');
-        
-        const markdown = await response.text(); // Convertit en texte
-        const converter = new showdown.Converter(); // Convertisseur MD → HTML
-        document.getElementById('readme-content').innerHTML = converter.makeHtml(markdown); // Affichage
-    } catch (error) {
-        document.getElementById('readme-content').innerHTML = "Erreur de chargement du README.";
-        console.error(error);
-    }
-}
-
-loadReadme();

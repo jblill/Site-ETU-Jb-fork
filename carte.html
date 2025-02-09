@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ce site web est un site web contenant plusieurs liens afin qu'ils soient facile
+    d'accès pour les étudiants du BUT info d'Aix Marseille">
+    <title>Site ETU - Accueil </title>
+    <link id="theme-link" rel="stylesheet" href="CSS/clair.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="shortcut icon" href="IMAGES/Logo_Site.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- Barre de navigation -->
+    <header id="main-header">
+        <nav>
+            <!-- Barre de Navigation téléphone -->
+            <div class="tel-header">
+                <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo" src="IMAGES/sommaire-logo.png" alt="Logo affichant le sommaire"></button>
+                <div id="clock"></div>
+                <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.png" alt="Logo affichant le changement de thème"></button>
+            </div>
+            <!-- Barre de Navigation Ordinateur-->
+            <div class="navigation">
+                <a href="https://github.com/TORCHIN-Maxence-24020376/Site-ETU">Lien du github</a>
+                <a href="#" id="navigation">Navigation</a>
+                <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen(),changeTheme('CSS/AMOLED.css')">Veille</a>
+                <!--Rajouter des liens ici-->
+            </div>
+        </nav>
+        <a href="#" id="theme" class="disparait"><img class="logo" src="IMAGES/soleil-logo.png" alt="Logo affichant le changement de thème"></a>
+    </header>
+    <section id="navigation-contenu" class="mega-menu">
+        <div><h3><a href="index.html" target="_blank">Accueil</a></h3></div>
+        <div>
+            <h4>Autres pages</h4>
+            <ul>
+                <li><a href="prof.html">Sites des profs</a></li>
+                <li><a href="links.html">Liens utiles</a></li>
+                <li><a href="logiciels.html">Logiciels utiles</a></li>
+                <li><a href="carte.html">Carte des prises</a></li>
+                <li><a href="carte.html#Selection-salle">Connexion réseau</a></li>
+            </ul>
+            <p class="tkt-frr">.</p>
+        </div>
+        <div>
+            <h4>CARTE DES PRISES</h4>
+            <p>Cette page contient une carte des prises interactive vous informant de l'adresse IP d'une salle, la présence de prises ainsi que la puissance de la 4g reçue (mesures réalisée avec l'opérateur free, cela semble être les mêmes valeurs pour les autres opérateurs mis à part<a href="https://www.bouyguestelecom.fr/forfaits-mobiles/sans-engagement?url_key=b-you-150-go-serie-speciale-5g-6528&utm_medium=sea_c&utm_source=google&utm_campaign=FORFAIT-M-BOUYGUES&utm_term=tarif%20forfait%20bouygues&gclsrc=aw.ds&gad_source=1&gclid=CjwKCAiAnpy9BhAkEiwA-P8N4n4_Ad9ToKiRtFO9EyGIJJ-U6CSePguVKHUz_UdkG6RNHwKhYW1MMBoCWnAQAvD_BwE">Bouygues Telecom</a>)</p>
+            <p class="tkt-frr">.</p>
+        </div>
+    </section>
+    <section id="theme-contenu" class="mega-menu">
+        <div><h3>Changer de thème</h3></div>
+        
+        <article>
+            <div onclick="changeTheme('CSS/clair.css')">Clair</div>
+            <div onclick="changeTheme('CSS/sombre.css')">Sombre</div>
+            <div onclick="changeTheme('CSS/AMOLED.css')">AMOLED</div>
+        </article>
+        
+    </section>
+    
+
+<!-- Changement de thème format mobile -->
+    <section id="myTheme" class="overlay">
+        <button class="closebtn" onclick="closeTheme()">&times;</button>
+        <div class="overlay-content">
+            <p>Changer de thème</p>
+            <div class="menu-item" onclick="changeTheme('CSS/clair.css'); closeTheme();">Clair</div>
+            <div class="menu-item" onclick="changeTheme('CSS/sombre.css'); closeTheme();">Sombre</div>
+            <div class="menu-item" onclick="changeTheme('CSS/AMOLED.css'); closeTheme();">AMOLED</div>
+        </div>
+    </section>
+
+    <section id="myNav" class="overlay">
+        <button class="closebtn" onclick="closeNav()">&times;</button>
+        <div class="overlay-content">
+            <p>Navigation</p>
+            <div class="menu-item" onclick="redirectTo('index.html',true)">Accueil</div>
+
+            <div class="menu-item" onclick="redirectTo('prof.html',true)">Sites profs</div>
+            <div class="menu-item" onclick="redirectTo('links.html',true)">Liens utiles</div>
+            <div class="menu-item" onclick="redirectTo('logiciels.html', true)">Logiciels utiles</div>
+            <div class="menu-item" onclick="redirectTo('carte.html',true)">Cartes des prises</div>
+            <div class="menu-item" onclick="redirectTo('carte.html#Selection-salle',true)">Connexion Réseau</div>
+            <div class="menu-item" onclick="redirectTo('#modeVeille'),toggleFullScreen(),changeTheme('CSS/AMOLED.css')">Veille</div>
+        </div>
+    </section>
+<hr>
+
+<!--Section dédiée à la cartes des prises dans l'IUT d'Aix-Marseille-->
+    <h1 id="Carte">Carte des prises</h1>
+
+<!--Dans les amphithéâtres de l'IUT-->
+    <h2>Amphis</h2>
+    <section class="Container">
+        <div class="Amphi">
+            <span class="name">Amphi Nord</span>
+            <span class="info">Prises: Oui <br> 4G: 0 barres </span>
+        </div>
+        <div class="Amphi">
+            <span class="name">Amphi Est</span>
+            <span class="info">Prises: Non <br> 4G: 2-3 barres </span>
+        </div>
+        <div class="Amphi">
+            <span class="name">Amphi Ouest</span>
+            <span class="info">Prises: Non <br> 4G: ? barres </span>
+        </div>
+    </section>
+
+<!--Dans le département informatique-->
+
+    <h2>Rez de chaussée</h2>
+    <section class="Container">
+        <div class="Salle">
+            <span class="name">I002</span>
+            <span class="info">Prise: Oui <br> 4G: 2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I003</span>
+            <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I004</span>
+            <span class="info">Prise: Oui <br> 4G: 1-2 barres <br> IP: 10.203.28.***</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I009</span>
+            <span class="info">Prise: Oui <br> 4G: 1 barre <br> IP: 10.203.28.***</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I010</span>
+            <span class="info">Prise: Oui <br> 4G: 0-1 barre <br> IP: 10.203.9.***</span>
+        </div>
+    </section>
+    <h2>Premier étage</h2>
+    <section class="Container">
+        <div class="Salle">
+            <span class="name">I102</span>
+            <span class="info">Prise: Non <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I104</span>
+            <span class="info">Prise: Oui <br> 4G: ? barres <br> IP: 10.203.28.***</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I106</span>
+            <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I107</span>
+            <span class="info">Prise: Non <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I109</span>
+            <span class="info">Prise: Non <br> 4G: 1-4 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I110</span>
+            <span class="info">Prise: Oui <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I111</span>
+            <span class="info">Prise: Non <br> 4G: 2 barres <br> IP: ?</span>
+        </div>
+    </section>
+    <h2>Deuxième étage</h2>
+    <section class="Container">
+        <div class="Salle">
+            <span class="name">I202</span>
+            <span class="info">Prise: Une seule <br> 4G: 1-2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I205</span>
+            <span class="info">Prise: Oui <br> 4G: 1-3 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I206</span>
+            <span class="info">Prise: Non <br> 4G: 1-2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I207</span>
+            <span class="info">Prise: Oui <br> 4G: 2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I208</span>
+            <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I209</span>
+            <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I211</span>
+            <span class="info">Prise: non <br> 4G: 2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I212</span>
+            <span class="info">Prise: non <br> 4G: 2 barres <br> IP: ?</span>
+        </div>
+        <div class="Salle">
+            <span class="name">I213</span>
+            <span class="info">Prise: ? <br> 4G: ? barres <br> IP: ?</span>
+        </div>
+    </section>
+
+    <section class="Container" id="Selection-salle">
+        <h1>Sélection Connexion</h1>
+        <div class="selection-menu">
+            <label for="select-salle">Choisissez une salle :</label>
+            <select id="select-salle" class="select-input" onchange="updateReseauConfig()">
+                <option value="">-- Sélectionnez une salle --</option>
+                <option value="I002">I002</option>
+                <option value="I004">I004</option>
+                <option value="I009">I009</option>
+                <option value="I010">I010</option>
+                <option value="I102">I102</option>
+                <option value="I104">I104</option>
+                <option value="I106">I106</option>
+            </select>
+        </div>
+        
+        <div id="réseau-info" class="réseau-info">
+            <h2>Configuration Réseau</h2>
+            <form>
+                <div>
+                    <label for="ip">Adresse IP</label>
+                    <input id="ip" type="text" class="champ-entree" readonly>
+                </div>
+                <div>
+                    <label for="Passerelle">Passerelle</label>
+                    <input id="Passerelle" type="text" class="champ-entree" readonly>
+                </div>
+                <div>
+                    <label for="dns1">DNS préféré</label>
+                    <input id="dns1" type="text" class="champ-entree" value="10.193.51.5" readonly>
+                </div>
+                <div>
+                    <label for="dns2">Autre DNS</label>
+                    <input id="dns2" type="text" class="champ-entree" value="139.124.1.2" readonly>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+
+<!--Mise en veille-->
+    <div id="veille" style="display: none;">
+        <h1>Zone de veille</h1>
+        <p>Cette zone est faite pour reposer les écrans OLED</p>
+        <p>(Apparait et disparait si vous vous mettez en plein écran)</p>
+        <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
+    </div>
+
+    
+
+<script src="JAVASCRIPT/main.js"></script>
+
+<footer>
+    <section>
+        <h3>Apporter ma contribution</h3>
+        <p>Vous pouvez apporter votre contribution à ce projet via le lien github en cliquant sur le logo.</p>
+        <a href="https://github.com/TORCHIN-Maxence-24020376/Site-ETU"><img src="IMAGES/github.svg" alt="github" id="github"></a>
+    </section>
+
+    <section>
+        <h3>Description</h3>
+        <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN et Cyril TAMINE, 2024.</p>
+        <p>Ce site contient tout ce qui vous sera utiles lors de vos années de BUT info à Aix-en-Provence.</p>
+    </section>
+    
+    <section>
+        <h3>Créateurs</h3>
+        <iframe src="https://torchin-maxence-24020376.github.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
+        <iframe src="https://torchin-maxence-24020376.github.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
+    </section>
+    
+</footer>
+</body>
+</html>
+

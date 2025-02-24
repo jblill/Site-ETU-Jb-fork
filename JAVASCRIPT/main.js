@@ -150,3 +150,66 @@ function updateReseauConfig() {
     document.getElementById("ip").value = config.ip;
     document.getElementById("Passerelle").value = config.Passerelle;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("main-header");
+
+    // Objets contenant les IDs des déclencheurs et des menus associés
+    const menus = {
+        "navigation": "navigation-contenu",
+        "theme": "theme-contenu"
+    };
+
+    let timeouts = {};
+
+    // Fonction pour mettre à jour la position du menu sous le header
+    function updateMenuPosition(menuId) {
+        const headerHeight = header.offsetHeight;
+        const menu = document.getElementById(menuId);
+        if (menu) {
+            menu.style.top = headerHeight + "px"; // Place le menu juste en dessous du header
+        }
+    }
+
+    // Fonction pour afficher un menu
+    function showMenu(menuId) {
+        clearTimeout(timeouts[menuId]); // Annule la fermeture du menu s'il y a un timeout en cours
+        updateMenuPosition(menuId);
+        const menu = document.getElementById(menuId);
+        if (menu) {
+            menu.style.maxHeight = menu.scrollHeight + "px"; // Déroulement fluide
+        }
+    }
+
+    // Fonction pour cacher un menu après un délai
+    function hideMenu(menuId) {
+        timeouts[menuId] = setTimeout(() => {
+            const menu = document.getElementById(menuId);
+            if (menu) {
+                menu.style.maxHeight = "0px"; // Fermeture fluide
+            }
+        }, 300);
+    }
+
+    // Initialiser la mise à jour des positions des menus
+    Object.values(menus).forEach(menuId => updateMenuPosition(menuId));
+
+    // Mise à jour de la position des menus au redimensionnement de la fenêtre
+    window.addEventListener("resize", () => {
+        Object.values(menus).forEach(updateMenuPosition);
+    });
+
+    // Ajouter les événements pour chaque menu
+    Object.entries(menus).forEach(([triggerId, menuId]) => {
+        const trigger = document.getElementById(triggerId);
+        const menu = document.getElementById(menuId);
+
+        if (trigger && menu) {
+            trigger.addEventListener("mouseenter", () => showMenu(menuId));
+            menu.addEventListener("mouseenter", () => showMenu(menuId));
+
+            trigger.addEventListener("mouseleave", () => hideMenu(menuId));
+            menu.addEventListener("mouseleave", () => hideMenu(menuId));
+        }
+    });
+});

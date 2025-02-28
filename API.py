@@ -40,8 +40,19 @@ if aujourdhui.weekday() == 6:  # Dimanche
 else:
     dimanche = aujourdhui - timedelta(days=aujourdhui.weekday() + 1)  # Aller au dernier dimanche
 
-date_debut = dimanche.strftime("%Y-%m-%d")
-date_fin = (dimanche + timedelta(days=6)).strftime("%Y-%m-%d")
+aujourdhui = datetime.today()
+annee_actuelle = aujourdhui.year
+
+# Si on est après juin, on télécharge pour l'année scolaire suivante
+if aujourdhui.month > 6:
+    annee_debut = annee_actuelle
+    annee_fin = annee_actuelle + 1
+else:
+    annee_debut = annee_actuelle - 1
+    annee_fin = annee_actuelle
+
+date_debut = f"{annee_debut}-09-01"  # 1er septembre
+date_fin = f"{annee_fin}-06-30"  # 30 juin
 
 BASE_URL = "https://ade-web-consult.univ-amu.fr/jsp/custom/modules/plannings/anonymous_cal.jsp"
 

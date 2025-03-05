@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 let salleEl = document.createElement("div");
                 salleEl.classList.add("salle-info");
                 salleEl.innerHTML = salleUrl
-                    ? `<a href="${salleUrl}">📍 <strong>${salle}</strong></a>`
+                    ? `<p onclick="afficheSalle('${salleUrl}')" style="cursor: pointer;" >📍 <strong>${salle}</strong></p>`
                     : `📍 <strong>${salle}</strong>`;
                 contentEl.appendChild(salleEl);
             }
@@ -90,22 +90,21 @@ document.addEventListener("DOMContentLoaded", function () {
             
             // 🔍 Détection améliorée des ressources (ex: R4.A.L1, R3.02, S2.04, etc.)
             let title = info.event.title || "";
-    
-            // 🔍 Détection améliorée des ressources
-            let match = title.match(/(R\d+\.[A-Z]?[A-Z]?\d+|S\d+\.[A-Z]?[A-Z]?\d+)/);
 
+            // 🔍 Détection améliorée des ressources
+            let match = title.match(/([RS]\d+(?:\.[A-Z]?(?:&[A-Z])?\.\d+|\.[A-Z]?\.\w+|\.\d+)|S\d+\.[A-Z]?\.\d+)/);
             if (match) {
                 let resourceClass = "resource-" + match[1]
-                    .replace(/\./g, "-")  // Remplace les points par des tirets (R4.A.B.08 → R4-A-B-08)
-                    .replace(/&/g, "-")    // Remplace les "&" par "-" (R4.A&B.08 → R4-A-B-08)
-                    .replace(/\s/g, "");   // Supprime les espaces
-
-                console.log("🎨 Classe CSS appliquée :", resourceClass);
+                    .replace(/\./g, "-")
+                    .replace(/&/g, "")
+                    .replace(/\s/g, "");
+        
                 info.el.classList.add(resourceClass);
+
             }
-            
+
             // 🎯 FAIRE CLIGNOTER LES EXAMENS
-            if (info.event.title.includes("Examen") || info.event.title.includes("Soutenance") || info.event.title.includes("Présentation")) {
+            if (info.event.title.includes("Examen") || info.event.title.includes("Soutenance") || info.event.title.includes("Présentation") || info.event.title.includes("Evaluation")) {
                 info.el.classList.add("exam-event");
             }
 
@@ -120,7 +119,17 @@ document.addEventListener("DOMContentLoaded", function () {
             info.el.classList.add("autonomie");
             }
 
-        },
+             // 🔍 Récupère la couleur de fond de l'événement
+            let backgroundColor = window.getComputedStyle(info.el).backgroundColor;
+
+            // 🔍 Fonction pour vérifier si la couleur de fond est foncée ou claire
+            function isDarkColor(color) {
+                let rgb = color.match(/\d+/g);
+                if (!rgb) return false; // Cas de couleur non valide
+                let brightness = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
+                return brightness < 128; // Retourne `true` si la couleur est foncée
+            }
+        }
     });
 
     calendar.render();

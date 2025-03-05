@@ -213,3 +213,43 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+function afficheSalle(salleURL) {
+    localStorage.setItem("salleCiblee", salleURL);
+    
+    redirectTo(salleURL, false);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    let salleCiblee = localStorage.getItem("salleCiblee");
+
+    if (salleCiblee) {
+
+        // 🔹 Extraire uniquement l'ID après `#`
+        let salleId = salleCiblee.split("#")[1]; 
+        if (!salleId) {
+            console.warn("⚠️ Aucun ID trouvé après `#` dans :", salleCiblee);
+            return;
+        }
+
+        // 🔄 Décodage pour gérer les %20 → espaces
+        let salleIdDecoded = decodeURIComponent(salleId);
+
+        // 🔍 Recherche de la salle avec les deux formats d'ID
+        function highlightSalle() {
+            let salleElement = document.getElementById(salleIdDecoded) || document.getElementById(salleId);
+
+            if (salleElement) {
+                salleElement.style.backgroundColor = "orange";
+                salleElement.style.color = "white";
+                salleElement.style.fontWeight = "bold";
+                localStorage.removeItem("salleCiblee"); // Nettoyage après application
+            } else {
+                console.warn("❌ Salle introuvable :", salleIdDecoded);
+            }
+        }
+
+        // 🔄 Petit délai pour laisser la page charger avant d'appliquer la couleur
+        setTimeout(highlightSalle, 500);
+    }
+});

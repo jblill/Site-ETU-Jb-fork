@@ -140,15 +140,22 @@ document.addEventListener("DOMContentLoaded", function () {
     
         localStorage.setItem("selectedGroup", selectedGroup);
     
-        fetch(`/edt_data/${selectedGroup}.ics`)
-            .then((response) => response.text())
-            .then((data) => {
-                let events = parseICS(data);
-    
-                calendar.removeAllEvents();
-                calendar.addEventSource(events);
-            })
-            .catch((error) => console.error("❌ Erreur lors du chargement du fichier .ics :", error));
+        let githubICSUrl = `https://raw.githubusercontent.com/TORCHIN-Maxence-24020376/EDT/main/edt_data/${selectedGroup}.ics`;
+
+    fetch(githubICSUrl)
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.text();
+    })
+    .then((data) => {
+        let events = parseICS(data);
+        calendar.removeAllEvents();
+        calendar.addEventSource(events);
+    })
+    .catch((error) => console.error("❌ Erreur lors du chargement du fichier .ics depuis GitHub :", error));
+
     };
 
     loadCalendar();

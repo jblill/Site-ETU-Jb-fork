@@ -118,20 +118,43 @@ document.addEventListener("DOMContentLoaded", function () {
             (info.event.extendedProps.description && info.event.extendedProps.description.toLowerCase().includes("autonomie"))) {
             info.el.classList.add("autonomie");
             }
-
-             // 🔍 Récupère la couleur de fond de l'événement
-            let backgroundColor = window.getComputedStyle(info.el).backgroundColor;
-
-            // 🔍 Fonction pour vérifier si la couleur de fond est foncée ou claire
-            function isDarkColor(color) {
-                let rgb = color.match(/\d+/g);
-                if (!rgb) return false; // Cas de couleur non valide
-                let brightness = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
-                return brightness < 128; // Retourne `true` si la couleur est foncée
-            }
         }
     });
-
+    
+    function hideEmptySaturday(calendar) {
+        let view = calendar.view; // 📅 Vue actuelle du calendrier
+        let startWeek = view.currentStart; // 📆 Début de la semaine affichée
+        let endWeek = view.currentEnd; // 📆 Fin de la semaine affichée
+    
+        // 📅 Récupère les événements de la semaine affichée
+        let events = calendar.getEvents().filter(event => {
+            let eventDate = new Date(event.start);
+            return eventDate >= startWeek && eventDate < endWeek; // 📌 Filtre uniquement les événements de la semaine affichée
+        });
+    
+        // 📌 Vérifie s'il y a des événements le samedi dans la semaine affichée
+        let hasSaturdayEvent = events.some(event => new Date(event.start).getDay() === 6);
+    
+        // 🔄 Vérifie si le changement est vraiment nécessaire
+        let currentHiddenDays = calendar.getOption('hiddenDays') || [];
+        let newHiddenDays = hasSaturdayEvent ? [0] : [0, 6]; // 0 = Dimanche, 6 = Samedi
+    
+        if (JSON.stringify(currentHiddenDays) !== JSON.stringify(newHiddenDays)) {
+            console.log(hasSaturdayEvent ? "✅ Des événements samedi, on l'affiche." : "🛑 Aucun événement samedi, on le cache !");
+            calendar.setOption('hiddenDays', newHiddenDays);
+        }
+    }
+    
+    // 🔄 Vérifie après chargement des événements **et changement de semaine**
+    calendar.on('eventsSet', function () {
+        setTimeout(() => hideEmptySaturday(calendar), 100); // 🕒 Ajoute un petit délai pour éviter un bug
+    });
+    
+    calendar.on('datesSet', function () {
+        setTimeout(() => hideEmptySaturday(calendar), 100); // 🕒 Ajoute un petit délai pour éviter un bug
+    });
+    
+    
     calendar.render();
 
     window.loadCalendar = function () {
@@ -229,4 +252,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
         return dateObj.toISOString().replace("Z", ""); // Retourne un format compatible YYYY-MM-DDTHH:MM:SS
     }
+
+    
 });

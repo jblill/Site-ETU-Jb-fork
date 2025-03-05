@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emploi du Temps - Site ETU</title>
+    <meta name="description" content="Cette page permet d'accéder à son emploi du temps">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.5/main.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link id="theme-link" rel="stylesheet" href="CSS/clair.css">
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="shortcut icon" href="IMAGES/Logo_Site.ico" type="image/x-icon">
 
 </head>
 <body>
@@ -33,7 +35,10 @@
             <a href="#" id="theme" class="disparait"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
         </header>
         <section id="navigation-contenu" class="mega-menu">
-            <div><h3><a href="index.html">Accueil</a></h3></div>
+            <div>
+                <h3><a href="index.html">Accueil</a></h3>
+                <h3><a href="edt.html">Voir mon EDT</a></h3>
+            </div>
             <div>
                 <h4>AUTRES PAGES</h4>
                 <ul>
@@ -47,9 +52,9 @@
                 <p class="tkt-frr">.</p>
             </div>
             <div>
-                <h4>ACCEUIL</h4>
-                <p>Ce site a pour but de partager les différentes ressources utiles au cursus de BUT Informatique à l'IUT d'Aix-Marseille.</p>
-                <p>On y retrouve différents types de contenu. Pour plus de détails, consultez les pages ci-dessous : </p>
+                <h4>Emploi du temps</h4>
+                <p>Cette page vous permet de consulter votre emploi du temps en sélectionant votre groupe.</p>
+                <p>Très bientôt vous pourrez le télécharger et avoir un onglet vous montrant les examens à l'avance.</p>
                 <p class="tkt-frr">.</p>
             </div>
         </section>
@@ -81,6 +86,7 @@
             <div class="overlay-content">
                 <p>Navigation</p>
                 <div class="menu-item" onclick="redirectTo('index.html',true)">Accueil</div>
+                <div class="menu-item" onclick="redirectTo('edt.html',true)">Emploi du temps</div>
                 <div class="menu-item" onclick="redirectTo('prof.html',true)">Sites profs</div>
                 <div class="menu-item" onclick="redirectTo('links.html',true)">Liens utiles</div>
                 <div class="menu-item" onclick="redirectTo('logiciels.html', true)">Logiciels utiles</div>

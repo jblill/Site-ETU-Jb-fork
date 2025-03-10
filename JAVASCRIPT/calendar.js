@@ -2,14 +2,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     var selectGroupe = document.getElementById("groupe");
 
-    // 📁 Liste des groupes détectés dans edt_data
+    // Liste des groupes détectés dans edt_data
     var groupes = [
         "1G1A", "1G1B", "1G2A", "1G2B", "1G3A", "1G3B", "1G4A",
         "2GA1-1", "2GA1-2", "2GA2-1", "2GA2-2", "2GB-1", "2GB-2",
         "3A1-1", "3A1-2", "3A2-1", "3A2-2", "3B-1", "3B-2"
     ];
 
-    // 🏗️ Génère les options dynamiquement
+    // Génère les options dynamiquement
     selectGroupe.innerHTML = groupes.map(g =>
         `<option value="${g}">${g}</option>`
     ).join("");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         selectGroupe.value = savedGroup;
     }
 
-    // 📅 Charge l'emploi du temps au changement de groupe
+    // Charge l'emploi du temps au changement de groupe
     selectGroupe.addEventListener("change", function () {
         localStorage.setItem("selectedGroup", this.value);
     });
@@ -51,12 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         allDaySlot: false,
         expandRows: true,
-        hiddenDays: [0], // ✅ Supprime le dimanche
+        hiddenDays: [0],
         events: [],
         slotEventOverlap: false,
 
-
-        // 📌 Affichage des événements avec salle + professeurs
         eventDidMount: function (info) {
             let salle = info.event.extendedProps ? info.event.extendedProps.salle : null;
             let salleUrl = info.event.extendedProps ? info.event.extendedProps.salleUrl : null;
@@ -65,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let contentEl = document.createElement("div");
             contentEl.classList.add("event-details");
 
-            // 📍 Affichage de la salle
+            // Affichage de la salle
             if (salle) {
                 let salleEl = document.createElement("div");
                 salleEl.classList.add("salle-info");
@@ -75,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 contentEl.appendChild(salleEl);
             }
 
-            // 👨‍🏫 Affichage du professeur (nom + prénom)
+            // Affichage du professeur (nom + prénom)
             if (professeur && professeur !== "Inconnu") {
                 let profEl = document.createElement("div");
                 profEl.classList.add("prof-info");
@@ -88,10 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 titleEl.insertAdjacentElement("afterend", contentEl);
             }
             
-            // 🔍 Détection améliorée des ressources (ex: R4.A.L1, R3.02, S2.04, etc.)
             let title = info.event.title || "";
 
-            // 🔍 Détection améliorée des ressources
             let match = title.match(/([RS]\d+(?:\.[A-Z]?(?:&[A-Z])?\.\d+|\.[A-Z]?\.\w+|\.\d+)|S\d+\.[A-Z]?\.\d+)/);
             if (match) {
                 let resourceClass = "resource-" + match[1]
@@ -103,17 +99,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
-            // 🎯 FAIRE CLIGNOTER LES EXAMENS
+            // Appliquer la classe Examen
             if (info.event.title.includes("Examen") || info.event.title.includes("Soutenance") || info.event.title.includes("Présentation") || info.event.title.includes("Evaluation")) {
                 info.el.classList.add("exam-event");
             }
 
-            // 📌 Appliquer la classe `.SAE` si c'est un module `Sx.xx`
+            // Appliquer la classe SAE
             if (info.event.title.match(/S\d+\.\d+/)) {
                 info.el.classList.add("SAE");
             }
 
-            // 📌 Appliquer la classe `.autonomie` si le cours est en autonomie
+            // Appliquer la classe autonomie
             if (info.event.title.toLowerCase().includes("autonomie") || 
             (info.event.extendedProps.description && info.event.extendedProps.description.toLowerCase().includes("autonomie"))) {
             info.el.classList.add("autonomie");
@@ -122,35 +118,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
     function hideEmptySaturday(calendar) {
-        let view = calendar.view; // 📅 Vue actuelle du calendrier
-        let startWeek = view.currentStart; // 📆 Début de la semaine affichée
-        let endWeek = view.currentEnd; // 📆 Fin de la semaine affichée
+        let view = calendar.view;
+        let startWeek = view.currentStart;
+        let endWeek = view.currentEnd;
     
-        // 📅 Récupère les événements de la semaine affichée
         let events = calendar.getEvents().filter(event => {
             let eventDate = new Date(event.start);
-            return eventDate >= startWeek && eventDate < endWeek; // 📌 Filtre uniquement les événements de la semaine affichée
+            return eventDate >= startWeek && eventDate < endWeek;
         });
     
-        // 📌 Vérifie s'il y a des événements le samedi dans la semaine affichée
         let hasSaturdayEvent = events.some(event => new Date(event.start).getDay() === 6);
     
-        // 🔄 Vérifie si le changement est vraiment nécessaire
         let currentHiddenDays = calendar.getOption('hiddenDays') || [];
-        let newHiddenDays = hasSaturdayEvent ? [0] : [0, 6]; // 0 = Dimanche, 6 = Samedi
+        let newHiddenDays = hasSaturdayEvent ? [0] : [0, 6];
     
         if (JSON.stringify(currentHiddenDays) !== JSON.stringify(newHiddenDays)) {
             calendar.setOption('hiddenDays', newHiddenDays);
         }
     }
     
-    // 🔄 Vérifie après chargement des événements **et changement de semaine**
     calendar.on('eventsSet', function () {
-        setTimeout(() => hideEmptySaturday(calendar), 100); // 🕒 Ajoute un petit délai pour éviter un bug
+        setTimeout(() => hideEmptySaturday(calendar), 100);
     });
     
     calendar.on('datesSet', function () {
-        setTimeout(() => hideEmptySaturday(calendar), 100); // 🕒 Ajoute un petit délai pour éviter un bug
+        setTimeout(() => hideEmptySaturday(calendar), 100);
     });
     
     
@@ -205,27 +197,58 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
             } else if (line.startsWith("DESCRIPTION:")) {
                 let desc = line.replace("DESCRIPTION:", "").trim();
-
-                // 🔍 Recherche du professeur avec plusieurs formats possibles
-                let profMatch = desc.match(/(?:Prof|ENSEIGNANT|Intervenant|RESPONSABLE|Instructor|Speaker|Docent):?\s*([\p{L}\s-]+)/iu);
+                console.log("🔍 Description détectée:", desc); // LOG pour voir ce qui est analysé
+            
+                let professeur = "Inconnu"; // Par défaut
+            
+                // 1️⃣ 🔍 Recherche explicite du professeur avec mots-clés
+                let profMatch = desc.match(/(?:Prof|ENSEIGNANT|Intervenant|RESPONSABLE|Instructor|Speaker|Docent)[:\s]*([\p{L}\s-]+)/iu);
+                
                 if (profMatch) {
-                    event.extendedProps.professeur = profMatch[1].trim();
+                    professeur = profMatch[1].trim();
+                    console.log("✅ Professeur détecté avec mot-clé:", professeur);
                 } else {
-                    // 🔍 Essaye de détecter un nom complet (ex: "Jean Dupont")
-                    let nameMatch = desc.match(/([A-Z][a-z]+(?:\s[A-Z][a-z]+)?)/);
+                    // 2️⃣ 🔍 Essaye de détecter un **nom complet** (ex: "JOUINI Rim")
+                    let nameMatch = desc.match(/([A-ZÉÈÀÙÇ][a-zéèàùç]+)\s+([A-ZÉÈÀÙÇ][a-zéèàùç]+)/);
+            
                     if (nameMatch) {
-                        event.extendedProps.professeur = nameMatch[1].trim();
+                        let nomComplet = nameMatch[1].trim() + " " + nameMatch[2].trim();
+                        
+                        // 🛑 Vérifie si "Groupe" a été capturé par erreur
+                        if (nomComplet.toLowerCase().includes("groupe")) {
+                            console.log("⚠️ 'Groupe' détecté, on cherche plus loin...");
+            
+                            // 3️⃣ 🔍 Essaye de récupérer un autre nom après "Groupe"
+                            let afterGroupeMatch = desc.match(/Groupe\s+\d+\s+an\d+\s+([A-ZÉÈÀÙÇ][a-zéèàùç]+)\s+([A-ZÉÈÀÙÇ][a-zéèàùç]+)/);
+                            
+                            if (afterGroupeMatch) {
+                                professeur = afterGroupeMatch[1].trim() + " " + afterGroupeMatch[2].trim();
+                                console.log("✅ Professeur détecté après 'Groupe':", professeur);
+                            } else {
+                                console.log("❌ Aucun professeur trouvé après 'Groupe'.");
+                            }
+                        } else {
+                            professeur = nomComplet;
+                            console.log("✅ Professeur détecté (nom + prénom):", professeur);
+                        }
+                    } else {
+                        console.log("❌ Aucun professeur trouvé dans la description.");
                     }
                 }
-            } else if (line.startsWith("END:VEVENT")) {
+            
+                // 🛠️ Ajout du professeur aux props de l'événement
+                event.extendedProps.professeur = professeur;
+            }
+            
+             else if (line.startsWith("END:VEVENT")) {
                 events.push(event);
             } else if (line.startsWith("SUMMARY:")) {
                 let title = line.replace("SUMMARY:", "").trim();
                 event.title = title;
             
-                // 🔍 Vérifie si c'est un examen (ajoute d'autres mots-clés si besoin)
+                // Détection d'examen
                 if (title.match(/examen|contrôle|partiel|évaluation|test/i)) {
-                    event.extendedProps.isExam = true; // ✅ Marque cet événement comme un examen
+                    event.extendedProps.isExam = true;
                 }
             }
         
@@ -236,22 +259,18 @@ document.addEventListener("DOMContentLoaded", function () {
     function formatICSTime(icsTime) {
         let dateObj = new Date(
             Date.UTC(
-                parseInt(icsTime.substring(0, 4)), // Année
-                parseInt(icsTime.substring(4, 6)) - 1, // Mois (0-indexed)
-                parseInt(icsTime.substring(6, 8)), // Jour
-                parseInt(icsTime.substring(9, 11)), // Heures
-                parseInt(icsTime.substring(11, 13)), // Minutes
-                parseInt(icsTime.substring(13, 15)) // Secondes
+                parseInt(icsTime.substring(0, 4)),
+                parseInt(icsTime.substring(4, 6)) - 1,
+                parseInt(icsTime.substring(6, 8)),
+                parseInt(icsTime.substring(9, 11)),
+                parseInt(icsTime.substring(11, 13)),
+                parseInt(icsTime.substring(13, 15)) 
             )
         );
     
-        // ✅ Convertir automatiquement en heure locale avec fuseau correct
-        let offset = dateObj.getTimezoneOffset() / -60; // Décalage horaire en heures
+        let offset = dateObj.getTimezoneOffset() / -60;
         dateObj.setHours(dateObj.getHours() + offset);
-            return dateObj.toISOString().replace("Z", ""); // Retourne un format compatible YYYY-MM-DDTHH:MM:SS
+            return dateObj.toISOString().replace("Z", "");
 
         }
-
-
-
     });

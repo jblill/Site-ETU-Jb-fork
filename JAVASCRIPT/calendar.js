@@ -140,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let newHiddenDays = hasSaturdayEvent ? [0] : [0, 6]; // 0 = Dimanche, 6 = Samedi
     
         if (JSON.stringify(currentHiddenDays) !== JSON.stringify(newHiddenDays)) {
-            console.log(hasSaturdayEvent ? "✅ Des événements samedi, on l'affiche." : "🛑 Aucun événement samedi, on le cache !");
             calendar.setOption('hiddenDays', newHiddenDays);
         }
     }
@@ -249,9 +248,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // ✅ Convertir automatiquement en heure locale avec fuseau correct
         let offset = dateObj.getTimezoneOffset() / -60; // Décalage horaire en heures
         dateObj.setHours(dateObj.getHours() + offset);
-    
-        return dateObj.toISOString().replace("Z", ""); // Retourne un format compatible YYYY-MM-DDTHH:MM:SS
-    }
+            return dateObj.toISOString().replace("Z", ""); // Retourne un format compatible YYYY-MM-DDTHH:MM:SS
 
-    
-});
+        }
+
+
+
+    });

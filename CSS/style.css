@@ -621,7 +621,7 @@ a{
     border-radius: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1016px) {
     .mega-menu{
         flex-direction: column;
     }
@@ -687,12 +687,6 @@ a{
     position: relative;
 }
 
-.salle-info {
-    font-size: 0.9em;
-    text-align: center;
-    margin-top: 5px;
-}
-
 .fc-event:hover {
     transform: scale(1.1);
     box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.8);
@@ -700,6 +694,12 @@ a{
     left: 0;
     right: 0;
     bottom: -10px;
+}
+
+.salle-info {
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 5px;
 }
 
 #calendar {

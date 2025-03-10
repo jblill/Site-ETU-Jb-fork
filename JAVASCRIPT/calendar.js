@@ -214,15 +214,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     .replace(/G[A-Z] /g, "")
                     .trim();
             
-                console.log("🧹 Ligne nettoyée :", cleanedDesc);
-            
                 // Ce qui reste après nettoyage est le nom du professeur
                 if (cleanedDesc) {
                     event.extendedProps.professeur = cleanedDesc;
-                    console.log("✅ Professeur détecté :", event.extendedProps.professeur);
                 } else {
                     event.extendedProps.professeur = "";
-                    console.log("❌ Aucun professeur détecté après nettoyage");
                 }
             }
             

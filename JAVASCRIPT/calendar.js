@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Liste des groupes détectés dans edt_data
     var groupes = [
-        "1G1A", "1G1B", "1G2A", "1G2B", "1G3A", "1G3B", "1G4A",
+        "1G1A", "1G1B", "1G2A", "1G2B", "1G3A", "1G3B", "1G4A", "1G4B",
         "2GA1-1", "2GA1-2", "2GA2-1", "2GA2-2", "2GB-1", "2GB-2",
         "3A1-1", "3A1-2", "3A2-1", "3A2-2", "3B-1", "3B-2"
     ];

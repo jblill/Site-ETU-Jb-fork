@@ -1,8 +1,10 @@
 /* style.css - Structure */
 
+/* Animation universelle
 *{
     transition: all 0.5s ease-in-out;
 }
+*/
 
 body {
     text-align: center;
@@ -175,7 +177,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;
     overflow: hidden;
 }
 
@@ -191,18 +193,18 @@ h1 {
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .google.hovered{
-    width: 90%;
-    height: 100px;
+    width: 50%;
+    transform: scale(1.5);
 }
 
 .google.hovered::before {
     opacity: 1;
     left: 5%;
-    transform: translate(-50%, -50%) scale(1.5);
+    transform: translate(-80%, -50%) scale(1.2);
 }
 
 .google.clicked::before {
@@ -222,29 +224,15 @@ h1 {
 .amu{
     width: 300px;
     height: 50px;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .amu:hover{
-    width: 90%;
-    height: 100px;
+    width: 50%;
+    transform: scale(1.5);
     background-color: #0065e5;
 }
 
-.amu:before{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background-image: url('../IMAGES/amu-logo.webp');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0;
-    transition: all 0.6s ease-in-out;
-}
 .amu:active{
     background-color: #004298;
 }
@@ -252,7 +240,7 @@ h1 {
 .amu.hovered::before {
     opacity: 1;
     left: 5%;
-    transform: translate(-50%, -50%) scale(1.5);
+    transform: translate(-50%, -50%) scale(0.8);
 }
 
 .amu.clicked::before {
@@ -263,7 +251,7 @@ h1 {
 
 .amu.clicked{
     background-color: white;
-    color: white;
+    color: white !important;
     width: 90%;
     height: 100px;
     scale: 0.9;
@@ -273,29 +261,14 @@ h1 {
 .ametice{
     width: 300px;
     height: 50px;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .ametice:hover{
-    width: 90%;
-    height: 100px;
+    width: 50%;
+    transform: scale(1.5);
     background-color: #5a0cb9;
     color: white;
-}
-
-.ametice:before{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background-image: url('../IMAGES/ametice-logo.webp');
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0;
-    transition: all 0.6s ease-in-out;
 }
 
 .ametice:active{
@@ -313,12 +286,12 @@ h1 {
 .edt{
     width: 300px;
     height: 50px;
-    transition: all 0.6s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .edt:hover{
-    width: 90%;
-    height: 100px;
+    width: 50%;
+    transform: scale(1.5);
     background-color: #00d4aa;
     color: white;
 }
@@ -352,7 +325,7 @@ h1 {
 .menu-item {
     padding: 5px 10px;
     cursor: pointer;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .menu-item:hover {
@@ -369,7 +342,7 @@ h1 {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0, 0.9);
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.3s;
 }
   
 .overlay-content {
@@ -504,10 +477,11 @@ footer{
 
 #github{
     height: 60px;
+    transition: all ease-in-out 0.3s;
 }
 
 #github:hover{
-    height: 70px;
+    transform: scale(1.1);
 }
 
 .titreSlide{
@@ -561,7 +535,7 @@ iframe{
     
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
+    transition: max-height 0.3s ease-in-out;
 }
 
 .mega-menu div{
@@ -614,11 +588,9 @@ a{
     cursor: pointer;
     justify-content: center;
     align-items: center;
-    min-height: 100px;
-}
-
-#theme-contenu article div:hover{
+    min-height: 50px;
     border-radius: 20px;
+    transition: all ease-in-out 0.3s;
 }
 
 @media (max-width: 1016px) {
@@ -701,3 +673,117 @@ a{
     text-align: center;
     margin-top: 5px;
 }
+
+.app {
+    height: 100vh;
+    width: 100vw;
+    border: 2px solid black;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(20, 20, 25);
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+  }
+
+  .circle {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-image: url("../IMAGES/Logo_Site.ico");
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotatecircle 3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+      infinite;
+  }
+
+  .border-circle {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background: linear-gradient(to right, blue, purple);
+  }
+
+  @keyframes rotatecircle {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .border-circle-up {
+    animation: trackup 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+    top: -200px;
+  }
+
+  @keyframes trackup {
+    0% {
+      transform: translateY(0rem);
+    }
+    50% {
+      transform: translateY(-4rem);
+    }
+    100% {
+      transform: translateY(0rem);
+    }
+  }
+
+  .border-circle-down {
+    top: 200px;
+    animation: trackdown 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  }
+
+  @keyframes trackdown {
+    0% {
+      transform: translateY(0rem);
+    }
+    50% {
+      transform: translateY(4rem);
+    }
+    100% {
+      transform: translateY(0rem);
+    }
+  }
+
+  .border-circle-left {
+    left: -200px;
+    animation: trackleft 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  }
+
+  @keyframes trackleft {
+    0% {
+      transform: translateX(0rem);
+    }
+    50% {
+      transform: translateX(-4rem);
+    }
+    100% {
+      transform: translateX(0rem);
+    }
+  }
+
+  .border-circle-right {
+    left: auto;
+    right: -200px;
+    animation: trackright 2s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+      infinite;
+  }
+
+  @keyframes trackright {
+    0% {
+      transform: translateX(0rem);
+    }
+    50% {
+      transform: translateX(4rem);
+    }
+    100% {
+      transform: translateX(0rem);
+    }
+  }

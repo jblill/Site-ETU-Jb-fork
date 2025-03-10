@@ -197,48 +197,35 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
             } else if (line.startsWith("DESCRIPTION:")) {
                 let desc = line.replace("DESCRIPTION:", "").trim();
-                console.log("🔍 Description détectée:", desc); // LOG pour voir ce qui est analysé
+                console.log("🔍 DESCRIPTION trouvée :", desc);
             
-                let professeur = "Inconnu"; // Par défaut
+                // Nettoyage des lignes
+                let cleanedDesc = desc
+                    .replace(/\\n/g, " ")
+                    .replace(/Groupe|Modifié le:|\(|\)|\//g, "")
+                    .replace(/\d+/g, "")
+                    .replace(/\s+/g, " ")
+                    .replace(/-/g, " ")
+                    .replace(/ère année/g, "")
+                    .replace(/ème année/g, "")
+                    .replace(/:/g,"")
+                    .replace(/A an/g, "")
+                    .replace(/ an /g, "")
+                    .replace(/G[A-Z] /g, "")
+                    .trim();
             
-                // 1️⃣ 🔍 Recherche explicite du professeur avec mots-clés
-                let profMatch = desc.match(/(?:Prof|ENSEIGNANT|Intervenant|RESPONSABLE|Instructor|Speaker|Docent)[:\s]*([\p{L}\s-]+)/iu);
-                
-                if (profMatch) {
-                    professeur = profMatch[1].trim();
-                    console.log("✅ Professeur détecté avec mot-clé:", professeur);
+                console.log("🧹 Ligne nettoyée :", cleanedDesc);
+            
+                // Ce qui reste après nettoyage est le nom du professeur
+                if (cleanedDesc) {
+                    event.extendedProps.professeur = cleanedDesc;
+                    console.log("✅ Professeur détecté :", event.extendedProps.professeur);
                 } else {
-                    // 2️⃣ 🔍 Essaye de détecter un **nom complet** (ex: "JOUINI Rim")
-                    let nameMatch = desc.match(/([A-ZÉÈÀÙÇ][a-zéèàùç]+)\s+([A-ZÉÈÀÙÇ][a-zéèàùç]+)/);
-            
-                    if (nameMatch) {
-                        let nomComplet = nameMatch[1].trim() + " " + nameMatch[2].trim();
-                        
-                        // 🛑 Vérifie si "Groupe" a été capturé par erreur
-                        if (nomComplet.toLowerCase().includes("groupe")) {
-                            console.log("⚠️ 'Groupe' détecté, on cherche plus loin...");
-            
-                            // 3️⃣ 🔍 Essaye de récupérer un autre nom après "Groupe"
-                            let afterGroupeMatch = desc.match(/Groupe\s+\d+\s+an\d+\s+([A-ZÉÈÀÙÇ][a-zéèàùç]+)\s+([A-ZÉÈÀÙÇ][a-zéèàùç]+)/);
-                            
-                            if (afterGroupeMatch) {
-                                professeur = afterGroupeMatch[1].trim() + " " + afterGroupeMatch[2].trim();
-                                console.log("✅ Professeur détecté après 'Groupe':", professeur);
-                            } else {
-                                console.log("❌ Aucun professeur trouvé après 'Groupe'.");
-                            }
-                        } else {
-                            professeur = nomComplet;
-                            console.log("✅ Professeur détecté (nom + prénom):", professeur);
-                        }
-                    } else {
-                        console.log("❌ Aucun professeur trouvé dans la description.");
-                    }
+                    event.extendedProps.professeur = "";
+                    console.log("❌ Aucun professeur détecté après nettoyage");
                 }
-            
-                // 🛠️ Ajout du professeur aux props de l'événement
-                event.extendedProps.professeur = professeur;
             }
+            
             
              else if (line.startsWith("END:VEVENT")) {
                 events.push(event);

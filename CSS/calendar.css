@@ -1,34 +1,35 @@
 #calendar {
     min-height: 150vh;
+    max-width: 90%;
+    margin: auto;
+    font-size: 1rem !important;
 }
-
 .fc-timegrid-slot {
     height: 50px !important;
 }
 
 .fc-event {
     min-height: 50px !important;
-    font-size: 1rem !important;
     padding: 5px !important;
+    transition: all ease-in-out 0.3s !important;
 }
 
 .event-details {
-    font-size: 1rem !important;
-    line-height: 1.5 !important;
+    line-height: 1 !important;
     padding: 5px !important;
 }
 
 @keyframes clignoter {
-    0% {transform : scale(0.8); box-shadow: -10px -10px 20px red, 10px 10px 20px grey; }
+    0% {transform : scale(0.9); box-shadow: -10px -10px 20px red, 10px 10px 20px grey; }
     25% { box-shadow: 10px -10px 20px red, -10px 10px 20px grey; }
     50% {transform : scale(1.2); box-shadow: 10px 10px 20px red, -10px -10px 20px grey; }
     75% { box-shadow: -10px 10px 20px red, 10px -10px 20px grey; }
-    100% {transform : scale(0.8); box-shadow: -10px -10px 20px red, 10px 10px 20px grey; }
+    100% {transform : scale(0.9); box-shadow: -10px -10px 20px red, 10px 10px 20px grey; }
 }
 
 
 
-/* Couleurs pour les ressources (de R1.01 à R6.20) */
+/* Couleurs pour les ressources */
 .resource-R1-01 { background-color: #cc66ff !important; }
 .resource-R1-02 { background-color: #0099ff !important; }
 .resource-R1-03 { background-color: #ffff007b !important; }
@@ -156,6 +157,6 @@
 .SAE{ background-color: #99ccff !important;}
 
 .exam-event {
-    animation: clignoter 2s infinite;
+    animation: clignoter 4s infinite;
     background-color: red !important;
 }

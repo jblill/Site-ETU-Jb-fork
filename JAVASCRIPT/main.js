@@ -6,7 +6,7 @@ function redirectTo(url, newTab = true) {
             } else {
                 window.location.href = url;
             }
-        }, 800); // Attente de 800 ms
+        }, 500);
     } else {
         if (newTab) {
             window.open(url, '_blank');
@@ -224,18 +224,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let salleCiblee = localStorage.getItem("salleCiblee");
 
     if (salleCiblee) {
-
-        // 🔹 Extraire uniquement l'ID après `#`
         let salleId = salleCiblee.split("#")[1]; 
         if (!salleId) {
             console.warn("⚠️ Aucun ID trouvé après `#` dans :", salleCiblee);
             return;
         }
 
-        // 🔄 Décodage pour gérer les %20 → espaces
         let salleIdDecoded = decodeURIComponent(salleId);
 
-        // 🔍 Recherche de la salle avec les deux formats d'ID
         function highlightSalle() {
             let salleElement = document.getElementById(salleIdDecoded) || document.getElementById(salleId);
 
@@ -243,13 +239,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 salleElement.style.backgroundColor = "orange";
                 salleElement.style.color = "white";
                 salleElement.style.fontWeight = "bold";
-                localStorage.removeItem("salleCiblee"); // Nettoyage après application
+                localStorage.removeItem("salleCiblee");
             } else {
                 console.warn("❌ Salle introuvable :", salleIdDecoded);
             }
         }
 
-        // 🔄 Petit délai pour laisser la page charger avant d'appliquer la couleur
         setTimeout(highlightSalle, 500);
     }
 });
+
+const startTime = performance.now();
+
+    window.addEventListener("load", () => {
+        const loadingScreen = document.getElementById("chargement");
+
+        const loadTime = performance.now() - startTime; 
+        const extraTime = loadTime * 0.2;
+
+        const totalTime = Math.max(loadTime + extraTime);
+
+        setTimeout(() => {
+            loadingScreen.style.transition = "opacity 0.3s ease-out";
+            loadingScreen.style.opacity = "0";
+
+            setTimeout(() => {
+                loadingScreen.style.display = "none";
+                content.style.display = "block";
+            }, 300);
+        }, totalTime);
+    });

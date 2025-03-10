@@ -1,47 +1,47 @@
-/* sombre.css - Thème Sombre */
+/* sombre.css - Thème sombre */
 
 body {
-    background-color: #121212;
+    background-color: #040f29;
     color: #fff;
 }
 
 header {
-    background-color: #1d1f22;
+    background-color: #081b33;
     color: #fff;
 }
 
 .Site, .Amphi, .Salle {
-    background-color: #1d1f22;
+    background-color: #0a2646;
     color: #fff;
 }
 
 .Site:hover, .Amphi:hover, .Salle:hover {
-    background-color: #2d2f31;
+    background-color: #132f4d;
 }
 
 .button{
-    background-color: #121212;
-    color: white;
+    background-color: #081b33;
+    color: #fff;
 }
 
 .button:hover{
-    background-color: #2d2f31;
+    background-color: #132f4d;
 }
 
 body::-webkit-scrollbar-track {
-    background: #1d1f22;
+    background: #0a2646;
 }
   
 body::-webkit-scrollbar-thumb {
-    background: #2d2f31;
+    background: #132f4d;
 }
 
 .logo{
-    filter: invert(1);
+    filter: invert(0.7);
 }
 
 .slides a{
-    color: white;
+    color: #fff;
 }
 
 #github{
@@ -49,27 +49,29 @@ body::-webkit-scrollbar-thumb {
 }
 
 .navigation a {
-    color: white;
+    color: #fff;
 }
 
 .navigation a:hover{
-    background-color: #2d2f31;
+    background-color: #132f4d;
 }
 
 .mega-menu{
-    background-color: #2d2f31;
+    background-color: #132f4d;
 }
 
-
 a{
-    color: rgb(139, 209, 255);
+    color: #60d5e5;
 }
 
 .tkt-frr{
-    color: #2d2f31;
+    color: #132f4d;
 }
 
+#theme-contenu article div{
+    background-color: #081b33;
+}
 
 #theme-contenu article div:hover{
-    background-color: #121212;
+    background-color: #1a4a73;
 }

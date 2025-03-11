@@ -114,6 +114,10 @@ document.addEventListener("DOMContentLoaded", function () {
             (info.event.extendedProps.description && info.event.extendedProps.description.toLowerCase().includes("autonomie"))) {
             info.el.classList.add("autonomie");
             }
+            // Appliquer la classe vacance
+            if (info.event.title.includes("Vacances") || info.event.title.includes("Ferié")){
+            info.el.classList.add("vacances");
+            }
         }
     });
     
@@ -197,7 +201,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
             } else if (line.startsWith("DESCRIPTION:")) {
                 let desc = line.replace("DESCRIPTION:", "").trim();
-                console.log("🔍 DESCRIPTION trouvée :", desc);
             
                 // Nettoyage des lignes
                 let cleanedDesc = desc
@@ -208,11 +211,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     .replace(/-/g, " ")
                     .replace(/ère année/g, "")
                     .replace(/ème année/g, "")
+                    .replace(/ère Année/g, "")
+                    .replace(/ème Année/g, "")
                     .replace(/:/g,"")
                     .replace(/A an/g, "")
                     .replace(/ an /g, "")
                     .replace(/G[A-Z] /g, "")
+                    
                     .trim();
+    
             
                 // Ce qui reste après nettoyage est le nom du professeur
                 if (cleanedDesc) {

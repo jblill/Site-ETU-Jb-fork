@@ -30,17 +30,23 @@ updateClock();
 document.addEventListener("DOMContentLoaded", () => {
     const mainHeader = document.getElementById("main-header");
     let lastScrollTop = 0;
+    const topMargin = 100;
+    const hideThreshold = 20;
 
     window.addEventListener("scroll", () => {
         const currentScrollTop = window.pageYOffset;
 
-        if (currentScrollTop > lastScrollTop) {
+        if (currentScrollTop <= topMargin) {
+            mainHeader.classList.remove("slide-up");
+            mainHeader.classList.add("slide-down");
+        } else if (currentScrollTop > lastScrollTop + hideThreshold) {
             mainHeader.classList.remove("slide-down");
             mainHeader.classList.add("slide-up");
-        } else {
+        } else if (currentScrollTop < lastScrollTop) {
             mainHeader.classList.remove("slide-up");
             mainHeader.classList.add("slide-down");
         }
+
         lastScrollTop = currentScrollTop;
     });
 
@@ -55,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
 
 // Fonction pour afficher/masquer le menu
 function toggleMenuById(menuId) {
@@ -72,9 +79,7 @@ function changeTheme(theme) {
 
     // Sauvegarder le thème sélectionné dans le stockage local
     localStorage.setItem('selected-theme', theme);
-
-    // Masquer le menu après sélection
-    document.getElementById('theme-menu').style.display = 'none';
+    
     closeTheme()
 }
 
@@ -105,22 +110,42 @@ function togglePanel(panelIdToToggle, panelIdToClose) {
     panelToToggle.style.width = panelToToggle.style.width === "100%" ? "0%" : "100%";
 }
 
+let previousTheme = localStorage.getItem('selected-theme');
+
 function toggleFullScreen() {
     const veilleElement = document.getElementById("veille");
 
     if (!document.fullscreenElement) {
+        previousTheme = localStorage.getItem('selected-theme');
         veilleElement.style.display = "block";
+        changeTheme('CSS/AMOLED.css');
+
         const requestFullScreen = document.documentElement.requestFullscreen ||
                                   document.documentElement.webkitRequestFullscreen ||
                                   document.documentElement.msRequestFullscreen;
         if (requestFullScreen) requestFullScreen.call(document.documentElement);
     } else {
+        veilleElement.style.display = "none";
+
         const exitFullScreen = document.exitFullscreen ||
                                document.webkitExitFullscreen ||
                                document.msExitFullscreen;
         if (exitFullScreen) exitFullScreen.call(document);
+
+        if (previousTheme) changeTheme(previousTheme);
     }
 }
+
+document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) {
+        const veilleElement = document.getElementById("veille");
+        veilleElement.style.display = "none";
+        if (previousTheme) changeTheme(previousTheme);
+    }
+});
+
+
+
 
 // Ajoute un gestionnaire d'événements pour détecter les changements de plein écran
 document.addEventListener("fullscreenchange", () => {
@@ -162,22 +187,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let timeouts = {};
 
-    // Fonction pour mettre à jour la position du menu sous le header
     function updateMenuPosition(menuId) {
         const headerHeight = header.offsetHeight;
         const menu = document.getElementById(menuId);
         if (menu) {
-            menu.style.top = headerHeight + "px"; // Place le menu juste en dessous du header
+            menu.style.top = headerHeight + "px";
         }
     }
 
     // Fonction pour afficher un menu
     function showMenu(menuId) {
-        clearTimeout(timeouts[menuId]); // Annule la fermeture du menu s'il y a un timeout en cours
+        clearTimeout(timeouts[menuId]);
         updateMenuPosition(menuId);
         const menu = document.getElementById(menuId);
         if (menu) {
-            menu.style.maxHeight = menu.scrollHeight + "px"; // Déroulement fluide
+            menu.style.maxHeight = menu.scrollHeight + "px";
         }
     }
 
@@ -186,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
         timeouts[menuId] = setTimeout(() => {
             const menu = document.getElementById(menuId);
             if (menu) {
-                menu.style.maxHeight = "0px"; // Fermeture fluide
+                menu.style.maxHeight = "0px";
             }
         }, 300);
     }
@@ -265,7 +289,6 @@ const startTime = performance.now();
 
             setTimeout(() => {
                 loadingScreen.style.display = "none";
-                content.style.display = "block";
             }, 300);
         }, totalTime);
     });

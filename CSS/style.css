@@ -47,6 +47,11 @@ nav {
     gap: 20px;
 }
 
+.options{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
 .navigation {
     display: flex;
     flex: 1;
@@ -237,27 +242,6 @@ h1 {
     background-color: #004298;
 }
 
-.amu.hovered::before {
-    opacity: 1;
-    left: 5%;
-    transform: translate(-50%, -50%) scale(0.8);
-}
-
-.amu.clicked::before {
-    opacity: 1;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.amu.clicked{
-    background-color: white;
-    color: white !important;
-    width: 90%;
-    height: 100px;
-    scale: 0.9;
-}
-
-
 .ametice{
     width: 300px;
     height: 50px;
@@ -273,14 +257,6 @@ h1 {
 
 .ametice:active{
     background-color: #370771;
-}
-
-.ametice.clicked{
-    background-color: white;
-    color: white;
-    width: 90%;
-    height: 100px;
-    scale: 0.9;
 }
 
 .edt{
@@ -343,6 +319,7 @@ h1 {
     background-color: rgba(0,0,0, 0.9);
     overflow-x: hidden;
     transition: 0.3s;
+    z-index: 9999;
 }
   
 .overlay-content {
@@ -390,6 +367,7 @@ h1 {
 .logo{
     width: 40px;
     height: 40px;
+    margin: 20px;
 }
 
 #réseau-info{
@@ -557,6 +535,11 @@ h4{
     flex-direction: column;
     flex: 1;
     text-align: justify;
+    padding: 10px;
+}
+
+#navigation-contenu div ul li a{
+    font-size: 2em;
 }
 
 .navigation {
@@ -593,7 +576,7 @@ a{
     transition: all ease-in-out 0.3s;
 }
 
-@media (max-width: 1016px) {
+@media (max-width: 792px) {
     .mega-menu{
         flex-direction: column;
     }
@@ -636,43 +619,57 @@ a{
     }
 }
 
-.container-calendar{
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-}
-
-
-#calendar {
-    max-width: 90%;
-    margin: auto;
-    font-size: 1rem;
-}
-
-.fc-event {
-    white-space: normal !important;
-    height: auto !important;
-    border-radius: 12px;
-    min-height: 50px;
-    overflow: hidden;
-    padding: 5px;
-    position: relative;
-}
-
-.fc-event:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.8);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -10px;
-}
-
 .salle-info {
     font-size: 0.9em;
     text-align: center;
     margin-top: 5px;
 }
+
+
+@media screen and (max-width: 480px) {
+    #clock{
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 1280px) {
+    .navigation{
+        height: 50px;
+    }
+    #clock{
+        font-size: 2em;
+    }
+    
+}
+
+#ent:hover{
+    background-color: #0065e5;
+}
+
+#ametice:hover{
+    background-color: #5a0cb9;
+}
+
+#ent:active{
+    background-color: #004298;
+}
+
+#ametice:active{
+    background-color: #370771;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Écran de chargement */
 
 .app {
     height: 100vh;

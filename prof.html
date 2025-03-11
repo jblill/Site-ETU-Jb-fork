@@ -20,37 +20,47 @@
       </div>
 <!-- Barre de navigation -->
 <header id="main-header">
-    <nav>
-        <!-- Barre de Navigation téléphone -->
+    <div class="disparait options">
+        <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
+        <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg" alt="Emploi du temps"></a>
+    </div>
+    <nav><!-- Barre de Navigation téléphone -->
         <div class="tel-header">
             <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo" src="IMAGES/sommaire-logo.svg" alt="Logo affichant le sommaire"></button>
             <div id="clock"></div>
             <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
         </div>
         <!-- Barre de Navigation Ordinateur-->
-        <div class="navigation">
-            <a href="https://github.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank">Lien du github</a>
-            <a href="#" id="navigation">Navigation</a>
-            <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen(),changeTheme('CSS/AMOLED.css')">Veille</a>
-            <!--Rajouter des liens ici-->
-        </div>
+            <div class="navigation">
+                <a href="#" id="navigation">Navigation</a>
+                <a id="ent" href="https://ent.univ-amu.fr/" target="_blank">ENT</a>
+                <a id="ametice" href="https://ametice.univ-amu.fr/" target="_blank">AMeTICE</a>
+                <!--Rajouter des liens ici-->
+            </div>
     </nav>
-    <a href="#" id="theme" class="disparait"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
+    <div class="disparait options">
+        <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
+        <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
+    </div>
 </header>
 <section id="navigation-contenu" class="mega-menu">
     <div>
-        <h3><a href="index.html">Accueil</a></h3>
-        <h3><a href="edt.html">Voir mon EDT</a></h3>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="edt.html">Voir mon EDT</a></li>
+        </ul>
     </div>
     <div>
         <h4>AUTRES PAGES</h4>
         <ul>
-            <li><a href="prof.html">Sites des profs</a></li>
-            <li><a href="links.html">Liens utiles</a></li>
-            <li><a href="logiciels.html">Logiciels utiles</a></li>
-            <li><a href="carte.html">Carte des prises</a></li>
-            <li><a href="carte.html#Selection-salle">Connexion réseau</a></li>
+            <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
+            <li><a href="links.html">🖇️Liens utiles</a></li>
+            <li><a href="logiciels.html">💿Logiciels utiles</a></li>
+            <li><a href="carte.html">🔌Carte des prises</a></li>
+            <li><a href="carte.html#Selection-salle">🛜Connexion réseau</a></li>
         </ul>
+        
+        <p class="tkt-frr">.</p>
     </div>
     <div>
         <h4 id="Prof">LIENS PROFS</h4>
@@ -131,8 +141,8 @@
 <footer>
     <section>
         <h3>Apporter ma contribution</h3>
-        <p>Vous pouvez apporter votre contribution à ce projet via le lien github en cliquant sur le logo.</p>
-        <a href="https://github.com/TORCHIN-Maxence-24020376/Site-ETU"><img src="IMAGES/github.svg" alt="github" id="github"></a>
+        <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
+        <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
     </section>
 
     <section>
@@ -143,8 +153,8 @@
     
     <section>
         <h3>Créateurs</h3>
-        <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.github.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
-        <iframe title="signature TAMINE Cyril" src="https://torchin-maxence-24020376.github.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
+        <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
+        <iframe title="signature TAMINE Cyril" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
     </section>
     
 </footer>

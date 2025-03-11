@@ -36,16 +36,12 @@ body::-webkit-scrollbar-thumb {
     background: #132f4d;
 }
 
-.logo{
-    filter: invert(0.7);
+.logo, #GitHub{
+    filter: invert(1);
 }
 
 .slides a{
     color: #fff;
-}
-
-#github{
-    filter: invert(1);
 }
 
 .navigation a {

@@ -1,8 +1,35 @@
+
+.container-calendar{
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+
 #calendar {
-    min-height: 150vh;
+    min-height: 150vh !important;
     max-width: 90%;
     margin: auto;
-    font-size: 1rem !important;
+    font-size: 1rem;
+}
+
+.fc-event {
+    white-space: normal !important;
+    height: auto !important;
+    border-radius: 12px;
+    min-height: 50px;
+    overflow: hidden;
+    padding: 5px;
+    position: relative;
+}
+
+.fc-event:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.8);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
 }
 .fc-timegrid-slot {
     height: 50px !important;
@@ -159,4 +186,58 @@
 .exam-event {
     animation: clignoter 4s infinite;
     background-color: red !important;
+}
+
+.vacances{
+    background-image: url("../IMAGES/manette.png") !important;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+    #calendar {
+        font-size: 0.9rem !important;
+        max-width: 98%;
+    }
+
+    .fc-timegrid-slot {
+        height: 35px !important;
+    }
+
+    .fc-event {
+        min-height: 35px !important;
+        padding: 3px !important;
+    }
+
+    .event-details {
+        padding: 3px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #calendar {
+        font-size: 0.8rem !important;
+        max-width: 100%;
+    }
+
+    .fc-timegrid-slot {
+        height: 25px !important;
+    }
+
+    .fc-event {
+        min-height: 25px !important;
+        padding: 2px !important;
+        font-size: 0.5rem !important;
+    }
+
+    .event-details {
+        padding: 2px !important;
+        font-size: 0.5rem !important;
+    }
+
+    @keyframes clignoter {
+        0%, 100% { transform: scale(0.95); }
+        50% { transform: scale(1.1); }
+    }
 }

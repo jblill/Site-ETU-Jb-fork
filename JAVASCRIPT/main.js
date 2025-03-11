@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainHeader = document.getElementById("main-header");
     let lastScrollTop = 0;
     const topMargin = 100;
-    const hideThreshold = 20;
+    const hideThreshold = 10;
 
     window.addEventListener("scroll", () => {
         const currentScrollTop = window.pageYOffset;

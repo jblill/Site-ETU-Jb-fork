@@ -644,10 +644,12 @@ a{
 
 #ent:hover{
     background-color: #0065e5;
+    color: white;
 }
 
 #ametice:hover{
     background-color: #5a0cb9;
+    color: white;
 }
 
 #ent:active{

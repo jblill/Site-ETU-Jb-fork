@@ -660,6 +660,17 @@ a{
     background-color: #370771;
 }
 
+#sous-navbar{
+    border-radius: 12px;
+    background-color: #00d4aa;
+    position: absolute;
+    bottom: -1em;
+    left: 50%;
+    transform: translateX(-50%); /* Centre précisément horizontalement */
+    right: 50%;
+    height: 50px;
+    width: 800px;
+}
 
 
 

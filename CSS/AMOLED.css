@@ -63,3 +63,7 @@ a{
 #theme-contenu article div:hover{
     background-color: #888;
 }
+
+.overlay {
+    background: linear-gradient(135deg, #000000, #111111);
+}

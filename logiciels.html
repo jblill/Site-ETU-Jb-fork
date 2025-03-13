@@ -94,17 +94,24 @@
 
 <section id="myNav" class="overlay">
   <button class="closebtn" onclick="closeNav()">&times;</button>
-  <div class="overlay-content">
-    <p>Sommaire</p>
-    <div class="menu-item" onclick="redirectTo('index.html', true)">Accueil</div>
-    <div class="menu-item" onclick="redirectTo('edt.html',true)">Emploi du temps</div>
-    <div class="menu-item" onclick="redirectTo('prof.html',true)">Sites profs</div>
-    <div class="menu-item" onclick="redirectTo('links.html',true)">Liens utiles</div>
-    <div class="menu-item" onclick="redirectTo('logiciels.html', true)">Logiciels utiles</div>
-    <div class="menu-item" onclick="redirectTo('carte.html',true)">Cartes des prises</div>
-            <div class="menu-item" onclick="redirectTo('carte.html#Selection-salle',true)">Connexion Réseau</div>
-            <div class="menu-item" onclick="redirectTo('#modeVeille'),toggleFullScreen(),changeTheme('CSS/AMOLED.css')">Veille</div>
-  </div>
+  <section id="myNav" class="overlay">
+    <button class="closebtn" onclick="closeNav()">&times;</button>
+    <div class="overlay-content">
+        <a href="index.html">Accueil</a><br>
+        <a href="edt.html">Voir mon EDT</a><br>
+        <hr>
+        <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
+        <ul id="sous-menu">
+            <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
+            <li><a href="links.html">🖇️Liens utiles</a></li>
+            <li><a href="logiciels.html">💿Logiciels utiles</a></li>
+            <li><a href="carte.html">🔌Carte des prises</a></li>
+            <li><a href="carte.html#Selection-salle">🛜Connexion réseau</a></li>
+        </ul> <br>
+        <hr>
+        <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
+        <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a>
+    </div>
 </section>
 
 <!--Section dédiée aux logiciels utiles afin de programmer en BUT Informatique-->
@@ -146,7 +153,10 @@
     <p class="name">Eclipse</p>
     <p class="info">IDE open source utilisé pour coder en Java.</p>
   </a>
-
+  <a class="Site" href="https://www.looping-mcd.fr/" target="_blank" title="Logiciel pour visulaiser les MCD">
+    <p class="name">Looping</p>
+    <p class="info">Logiciel pour visulaiser les MCD.</p>
+  </a>
 </section>
 
 <!--Mise en veille-->

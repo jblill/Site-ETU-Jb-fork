@@ -94,15 +94,20 @@ Informatique.">
 <section id="myNav" class="overlay">
     <button class="closebtn" onclick="closeNav()">&times;</button>
     <div class="overlay-content">
-        <p>Sommaire</p>
-        <div class="menu-item" onclick="redirectTo('index.html', true)">Accueil</div>
-        <div class="menu-item" onclick="redirectTo('edt.html',true)">Emploi du temps</div>
-        <div class="menu-item" onclick="redirectTo('prof.html',true)">Sites profs</div>
-        <div class="menu-item" onclick="redirectTo('links.html',true)">Liens utiles</div>
-        <div class="menu-item" onclick="redirectTo('logiciels.html', true)">Logiciels utiles</div>
-        <div class="menu-item" onclick="redirectTo('carte.html',true)">Cartes des prises</div>
-        <div class="menu-item" onclick="redirectTo('carte.html#Selection-salle',true)">Connexion Réseau</div>
-        <div class="menu-item" onclick="redirectTo('#modeVeille'),toggleFullScreen(),changeTheme('CSS/AMOLED.css')">Veille</div>
+        <a href="index.html">Accueil</a><br>
+        <a href="edt.html">Voir mon EDT</a><br>
+        <hr>
+        <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
+        <ul id="sous-menu">
+            <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
+            <li><a href="links.html">🖇️Liens utiles</a></li>
+            <li><a href="logiciels.html">💿Logiciels utiles</a></li>
+            <li><a href="carte.html">🔌Carte des prises</a></li>
+            <li><a href="carte.html#Selection-salle">🛜Connexion réseau</a></li>
+        </ul> <br>
+        <hr>
+        <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
+        <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a>
     </div>
 </section>
 
@@ -167,9 +172,9 @@ Informatique.">
         <p class="info">Transport à la demande de Salon Étang Côte Bleue.</p>
     </a>
 
-    <a class="Site" target="_blank" href="https://www.instagram.com/direct/inbox/" title="Instagram direct">
-        <p class="name">Instagram</p>
-        <p class="info">Réseau social de partage de photo et vidéo.</p>
+    <a class="Site" target="_blank" href="https://graphonline.top/fr" title="Outil de visualisation des graphes">
+        <p class="name">GraphOnline</p>
+        <p class="info">Outil de visualisation des graphes.</p>
     </a>
 
     <a class="Site" target="_blank" href="https://drive.google.com/drive/my-drive?hl=fr" title="Pour partager des

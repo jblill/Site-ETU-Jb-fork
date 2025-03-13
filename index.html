@@ -45,6 +45,16 @@
             <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
         </div>
     </header>
+
+    <!-- Pour une prochaine mise à jour
+    <section id="sous-navbar">
+        <div></div>
+        <article>
+        </article>
+        <div></div>
+    </section>
+    -->
+
     <section id="navigation-contenu" class="mega-menu">
         <div>
             <ul>
@@ -61,7 +71,6 @@
                 <li><a href="carte.html">🔌Carte des prises</a></li>
                 <li><a href="carte.html#Selection-salle">🛜Connexion réseau</a></li>
             </ul>
-            
             <p class="tkt-frr">.</p>
         </div>
         <div>
@@ -97,15 +106,20 @@
     <section id="myNav" class="overlay">
         <button class="closebtn" onclick="closeNav()">&times;</button>
         <div class="overlay-content">
-            <p>Navigation</p>
-            <div class="menu-item" onclick="redirectTo('index.html',true)">Accueil</div>
-            <div class="menu-item" onclick="redirectTo('edt.html',true)">Emploi du temps</div>
-            <div class="menu-item" onclick="redirectTo('prof.html',true)">Sites profs</div>
-            <div class="menu-item" onclick="redirectTo('links.html',true)">Liens utiles</div>
-            <div class="menu-item" onclick="redirectTo('logiciels.html', true)">Logiciels utiles</div>
-            <div class="menu-item" onclick="redirectTo('carte.html',true)">Cartes des prises</div>
-            <div class="menu-item" onclick="redirectTo('carte.html#Selection-salle',true)">Connexion Réseau</div>
-            <div class="menu-item" onclick="redirectTo('#modeVeille'),toggleFullScreen(),changeTheme('CSS/AMOLED.css')">Veille</div>
+            <a href="index.html">Accueil</a><br>
+            <a href="edt.html">Voir mon EDT</a><br>
+            <hr>
+            <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
+            <ul id="sous-menu">
+                <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
+                <li><a href="links.html">🖇️Liens utiles</a></li>
+                <li><a href="logiciels.html">💿Logiciels utiles</a></li>
+                <li><a href="carte.html">🔌Carte des prises</a></li>
+                <li><a href="carte.html#Selection-salle">🛜Connexion réseau</a></li>
+            </ul> <br>
+            <hr>
+            <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
+            <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a>
         </div>
     </section>
 

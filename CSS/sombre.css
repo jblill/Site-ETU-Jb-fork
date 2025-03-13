@@ -72,3 +72,6 @@ a{
     background-color: #1a4a73;
 }
 
+.overlay {
+    background: linear-gradient(135deg, #0a2646, #081b33);
+}

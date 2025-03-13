@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainHeader = document.getElementById("main-header");
     let lastScrollTop = 0;
     const topMargin = 100;
-    const hideThreshold = 20;
+    const hideThreshold = 10;
 
     window.addEventListener("scroll", () => {
         const currentScrollTop = window.pageYOffset;
@@ -92,23 +92,46 @@ if (savedTheme) {
 }
 
 function closeTheme() {
-    document.getElementById("myTheme").style.width = "0%";
+    const themePanel = document.getElementById("myTheme");
+    const navPanel = document.getElementById("myNav");
+
+    themePanel.style.width = "0%";
+    navPanel.style.boxShadow = "none";
 }
 
 function closeNav() {
-    document.getElementById("myNav").style.width = "0%";
+    const navPanel = document.getElementById("myNav");
+
+    navPanel.style.width = "0%";
+    navPanel.style.boxShadow = "none";
 }
 
 function togglePanel(panelIdToToggle, panelIdToClose) {
     const panelToToggle = document.getElementById(panelIdToToggle);
     const panelToClose = document.getElementById(panelIdToClose);
 
-    if (panelToClose.style.width === "100%") {
+    // Ferme le panneau actif si nécessaire
+    if (panelToClose.style.width === "85%") {
         panelToClose.style.width = "0%";
+        panelToClose.style.boxShadow = "none";
     }
 
-    panelToToggle.style.width = panelToToggle.style.width === "100%" ? "0%" : "100%";
+    // Basculer l'état du panneau ciblé
+    if (panelToToggle.style.width === "85%") {
+        panelToToggle.style.width = "0%";
+        panelToToggle.style.boxShadow = "none";
+    } else {
+        panelToToggle.style.width = "85%";
+        panelToToggle.style.boxShadow = "50px 0px 50px rgba(0,0,0,0.5)";
+    }
 }
+
+function toggleSousMenu() {
+    const sousMenu = document.getElementById("sous-menu");
+
+    sousMenu.style.display = sousMenu.style.display === 'block' ? 'none' : 'block';
+}
+
 
 let previousTheme = localStorage.getItem('selected-theme');
 

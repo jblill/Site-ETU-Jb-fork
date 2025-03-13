@@ -310,58 +310,47 @@ h1 {
 
 .overlay {
     height: 100%;
+    font-size: 1.5em;
     width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
     overflow-x: hidden;
     transition: 0.3s;
     z-index: 9999;
 }
-  
+
 .overlay-content {
     position: relative;
-    top: 25%;
+    top: 10%;
     width: 100%;
-    text-align: center;
     margin-top: 30px;
+    text-align: left;
+    line-height: 2em;
+}
+
+#sous-menu{
+    display: none;
 }
   
 .overlay div {
     padding: 8px;
     text-decoration: none;
-    font-size: 36px;
-    color: #818181;
     display: block;
     transition: 0.3s;
 }
-  
-.overlay div:hover, .overlay div:focus {
-    color: #f1f1f1;
-}
+
   
 .overlay .closebtn {
     position: absolute;
-    top: 10%;
-    right: 45px;
+    top: 1%;
+    right: 1%;
     font-size: 60px;
-    color: white;
     text-decoration: none;
     background: none;
     border: none;
     padding: 0;
-}
-
-@media screen and (max-height: 450px) {
-    .overlay div {font-size: 20px}
-    .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-    }
 }
 
 .logo{
@@ -617,19 +606,21 @@ a{
     .tel-header{
         width: 100%;
     }
+    #clock{
+        display: none;
+    }
+    .navigation{
+        height: 20px;
+    }
+    header{
+        height: 5em;
+    }
 }
 
 .salle-info {
     font-size: 0.9em;
     text-align: center;
     margin-top: 5px;
-}
-
-
-@media screen and (max-width: 480px) {
-    #clock{
-        font-size: 2em;
-    }
 }
 
 @media (max-width: 1280px) {
@@ -644,10 +635,12 @@ a{
 
 #ent:hover{
     background-color: #0065e5;
+    color: white;
 }
 
 #ametice:hover{
     background-color: #5a0cb9;
+    color: white;
 }
 
 #ent:active{
@@ -658,6 +651,17 @@ a{
     background-color: #370771;
 }
 
+#sous-navbar{
+    border-radius: 12px;
+    background-color: #00d4aa;
+    position: absolute;
+    bottom: -1em;
+    left: 50%;
+    transform: translateX(-50%);
+    right: 50%;
+    height: 50px;
+    width: 800px;
+}
 
 
 
@@ -784,4 +788,33 @@ a{
       transform: translateX(0rem);
     }
   }
-  
+
+  @media (max-width: 792px) {
+    .app {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .circle {
+        width: 100px;
+        height: 100px;
+    }
+    .border-circle-up {
+        top: -50px;
+    }
+
+    .border-circle-down {
+        top: 50px;
+    }
+
+    .border-circle-left {
+        left: -50px;
+    }
+
+    .border-circle-right {
+        right: -50px;
+    }
+}

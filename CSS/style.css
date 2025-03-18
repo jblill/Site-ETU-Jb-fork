@@ -45,11 +45,12 @@ nav {
     display: flex;
     align-items: center;
     gap: 20px;
+    height: 100%;
 }
 
 .options{
     display: flex;
-    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .navigation {
@@ -328,19 +329,31 @@ h1 {
     margin-top: 30px;
     text-align: left;
     line-height: 2em;
+    display: flex;
+    padding: 8px;
 }
 
 #sous-menu{
     display: none;
 }
-  
+
 .overlay div {
-    padding: 8px;
     text-decoration: none;
     display: block;
     transition: 0.3s;
 }
 
+.liens-principaux{
+    display: flex !important;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.liens-principaux div{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
   
 .overlay .closebtn {
     position: absolute;
@@ -491,6 +504,7 @@ iframe{
     justify-content: space-between;
 }
 
+
 .mega-menu {
     position: fixed;
     top: 100px;
@@ -531,6 +545,10 @@ h4{
     font-size: 1.5em;
 }
 
+#navigation-contenu div ul {
+    line-height: 2em;
+}
+
 .navigation {
     position: relative;
 }
@@ -565,6 +583,17 @@ a{
     transition: all ease-in-out 0.3s;
 }
 
+@media (max-width: 940px) {
+    .logo{
+        width: 30px;
+        height: 30px;
+        margin: 15px;
+    }
+    .navigation a {
+        font-size: 1em;
+    }
+}
+
 @media (max-width: 792px) {
     .mega-menu{
         flex-direction: column;
@@ -587,8 +616,12 @@ a{
     .disparait{
         display: none;
     }
+    .options{
+        display: none;
+    }
     .respons{
-        display: block;
+        display: flex;
+        align-items: center;
     }
     footer{
         flex-direction: column;
@@ -608,9 +641,6 @@ a{
     }
     #clock{
         display: none;
-    }
-    .navigation{
-        height: 20px;
     }
     header{
         height: 5em;
@@ -651,18 +681,17 @@ a{
     background-color: #370771;
 }
 
-#sous-navbar{
-    border-radius: 12px;
-    background-color: #00d4aa;
-    position: absolute;
-    bottom: -1em;
-    left: 50%;
-    transform: translateX(-50%);
-    right: 50%;
-    height: 50px;
-    width: 800px;
+#mails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.mails{
+    width: 30px;
+    height: 20px;
+    margin: 10px;
+}
 
 
 

@@ -68,7 +68,7 @@
                 <li><a href="links.html">🖇️Liens utiles</a></li>
                 <li><a href="logiciels.html">💿Logiciels utiles</a></li>
                 <li><a href="carte.html">🔌Carte des prises</a></li>
-                <li><a href="carte.html#Selection-salle">🛜Connexion réseau</a></li>
+                <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
             </ul>
             <p class="tkt-frr">.</p>
         </div>
@@ -123,7 +123,7 @@
                 <li><a href="links.html">🖇️Liens utiles</a></li>
                 <li><a href="logiciels.html">💿Logiciels utiles</a></li>
                 <li><a href="carte.html">🔌Carte des prises</a></li>
-                <li><a href="carte.html#Selection-salle">🛜Connexion réseau</a></li>
+                <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
             </ul>
             <hr>
             <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a><br>
@@ -140,7 +140,53 @@
 
     </section>
     <hr>
+    <h2>Tableau de bord étudiant</h2>
 
+
+    <section class="Container">
+        <article class="Container" id="Selection-salle">
+            <h1>Sélection Connexion</h1>
+            <div class="selection-menu">
+                <label for="select-salle">Choisissez une salle :</label>
+                <select id="select-salle" class="select-input" onchange="updateReseauConfig()">
+                    <option value="">-- Sélectionnez une salle --</option>
+                    <option value="I002">I002</option>
+                    <option value="I004">I004</option>
+                    <option value="I009">I009</option>
+                    <option value="I010">I010</option>
+                    <option value="I102">I102</option>
+                    <option value="I104">I104</option>
+                    <option value="I106">I106</option>
+                </select>
+            </div>
+            
+            <div id="réseau-info" class="réseau-info">
+                <h2>Configuration Réseau</h2>
+                <form>
+                    <div>
+                        <label for="ip">Adresse IP</label>
+                        <input id="ip" type="text" class="champ-entree" readonly>
+                    </div>
+                    <div>
+                        <label for="Passerelle">Passerelle</label>
+                        <input id="Passerelle" type="text" class="champ-entree" readonly>
+                    </div>
+                    <div>
+                        <label for="dns1">DNS préféré</label>
+                        <input id="dns1" type="text" class="champ-entree" value="10.193.51.5" readonly>
+                    </div>
+                    <div>
+                        <label for="dns2">Autre DNS</label>
+                        <input id="dns2" type="text" class="champ-entree" value="139.124.1.2" readonly>
+                    </div>
+                </form>
+            </div>
+        </article>
+
+        <iframe title="emploi du temps du jour" src="today.html" id="edt-du-jour"></iframe>
+    </section>
+    
+    
 <!--Mise en veille-->
     <div id="veille" style="display: none;">
         <h1>Zone de veille</h1>
@@ -150,6 +196,7 @@
     </div>
 
 <script src="JAVASCRIPT/main.js"></script>
+<script src="JAVASCRIPT/meteo.js"></script>
 
 <footer>
     <section>

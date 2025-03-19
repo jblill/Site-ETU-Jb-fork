@@ -693,10 +693,12 @@ a{
     margin: 10px;
 }
 
-
-
-
-
+#edt-du-jour{
+    width: 50%;
+    height: 100%;
+    overflow: scroll;
+    border-radius: 20px;
+}
 
 
 

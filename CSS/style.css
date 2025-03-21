@@ -697,10 +697,59 @@ a{
     width: 50%;
     height: 100%;
     overflow: scroll;
+    height: 80vh;
     border-radius: 20px;
 }
 
 
+
+
+#meteo{
+    background-image: url("../IMAGES/couvert.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    height: 400px;
+    width: 80%;
+    border-radius: 20px;
+    display: flex;
+    align-items: last baseline;
+    justify-content: center;
+}
+
+.informations-meteo{
+    font-size: 1.2em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    justify-content: space-around;
+    text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #00ffee,
+    0 0 92px #00ffee,
+    0 0 102px #00ffee,
+    0 0 151px #00ffee;
+}
+
+.info-temps-reel{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.meteo-date{
+    font-size: 2em;
+}
+
+.meteo-logo{
+    font-size: 2em;
+}
 
 
 

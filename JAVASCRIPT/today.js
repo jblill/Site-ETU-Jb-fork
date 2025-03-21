@@ -10,20 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (groupeSelect) {
         groupeSelect.value = selectedGroup;
     }
-    
-    function filterEventsForToday(events) {
-        let now = new Date();
-        let today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        let tomorrow = new Date(today);
-        tomorrow.setDate(today.getDate() + 1);
-
-        return events.filter(event => {
-            let eventStart = new Date(event.start);
-            return eventStart >= today && eventStart < tomorrow;
-        });
-    }
 
     function updateDayAt19H(calendar) {
         let now = new Date();
@@ -48,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.ok ? response.text() : Promise.reject("Erreur de chargement"))
             .then(data => {
                 let events = parseICS(data);
-                let todayEvents = filterEventsForToday(events);
 
                 let calendarEl = document.getElementById("calendar");
                 let calendar = new FullCalendar.Calendar(calendarEl, {
@@ -60,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     height: "auto",
                     allDaySlot: false,
                     expandRows: true,
-                    events: todayEvents,
+                    events: events,
 
                     eventDidMount: function (info) {
                         let salle = info.event.extendedProps ? info.event.extendedProps.salle : null;

@@ -78,6 +78,9 @@ getMeteoAix().then(data => {
         codeMeteo = data.current_weather.weathercode
         prevision = data.daily
 
+        let icone;
+        let background;
+
         icone,background = changeIcone(codeMeteo);
 
         console.log(icone)

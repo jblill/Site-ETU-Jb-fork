@@ -141,23 +141,38 @@
     </section>
     <hr>
     <h2>Tableau de bord étudiant</h2>
-    <section class="Container">
+    
+    <section class="Container Container-meteo">
         <div id="meteo">
             <div class="informations-meteo">
-                <div class="info-temps-reel">
-                    <p class="meteo-date">20 mars</p>
-                    <p class="meteo-logo">☁️</p>
-                    <p>28°C</p> <!-- Température actuelle -->
-                    <p>🍃 26.3 km/h</p>
+                <div class="meteo-header">
+                  <p id="meteo-date"></p>
+                  <p id="meteo-logo"></p>
                 </div>
-                <div class="info-temps-reel">
-                    <p>🌡️- : 14°C</p> <!-- Température minimale -->
-                    <p>🌡️+ : 29°C</p> <!-- Température maximale -->
+                <div class="meteo-main">
+                  <p id="temperature"></p>
+                  <p><span id="vent"></span>  <span id="precipitations"></span></p>
+                </div>
+                <div class="meteo-footer">
+                  <p id="temp_max"></p>
+                  <p id="temp_min"></p>
                 </div>
             </div>
-            <div class="weather-overlay"></div>
+        </div>
+        
+    </section>
+    <section class="Container Container-meteo">
+        <div class="previsions">
+            <div id="jour1"></div>
+            <div id="jour2"></div>
+            <div id="jour3"></div>
+            <div id="jour4"></div>
+            <div id="jour5"></div>
+            <div id="jour6"></div>
+            <div id="jour7"></div>
         </div>
     </section>
+      
     <section class="Container">
         <article class="Container" id="Selection-salle">
             <h1>Sélection Connexion</h1>

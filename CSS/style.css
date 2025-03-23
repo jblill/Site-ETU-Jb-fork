@@ -701,55 +701,100 @@ a{
     border-radius: 20px;
 }
 
-
-
-
 #meteo{
-    background-image: url("../IMAGES/couvert.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
-    height: 400px;
-    width: 80%;
-    border-radius: 20px;
-    display: flex;
-    align-items: last baseline;
-    justify-content: center;
-}
-
-.informations-meteo{
-    font-size: 1.2em;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 20px;
-    justify-content: space-around;
-    text-shadow:
-    0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 42px #0fa,
-    0 0 82px #00ffee,
-    0 0 92px #00ffee,
-    0 0 102px #00ffee,
-    0 0 151px #00ffee;
-}
-
-.info-temps-reel{
+    height: 500px;
+    width: 50%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: left;
+}
+
+.previsions{
+    width: 50%;
+    display: flex;
     gap: 20px;
 }
 
-.meteo-date{
-    font-size: 2em;
+.previsions div{
+    background-image: url("../IMAGES/jour.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.meteo-logo{
-    font-size: 2em;
+
+#jour1, #jour2, #jour3, #jour4, #jour5, #jour6, #jour7 {
+  flex: 1;
+  height: 150px;
+  text-align: center;
 }
+  
+.Container-meteo{
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.informations-meteo {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: 350px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: all ease-in-out 0.3s;
+}
+
+.meteo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+}
+  
+.meteo-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+  
+.meteo-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    opacity: 0.8;
+}
+
+#meteo-logo{
+    font-size: 1.5em;
+}
+
+#meteo-date{
+    font-size: 1.5em;
+}
+
+.previsions div.selected {
+    border: 2px solid white;
+    background-color: white;
+    background-image: none;
+}
+
+
+
+
+
+
+
 
 
 

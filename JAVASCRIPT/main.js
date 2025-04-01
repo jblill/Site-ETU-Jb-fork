@@ -315,15 +315,3 @@ const startTime = performance.now();
             }, 300);
         }, totalTime);
     });
-
- // POISSON D'AVRIL
-  document.addEventListener("DOMContentLoaded", () => {
-    const walk = node => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        node.textContent = [...node.textContent].reverse().join('');
-      } else {
-        node.childNodes.forEach(walk);
-      }
-    };
-    walk(document.body);
-  });

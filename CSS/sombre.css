@@ -75,3 +75,16 @@ a{
 .overlay {
     background: linear-gradient(135deg, #0a2646, #081b33);
 }
+
+.previsions div{
+    background-image: url("../IMAGES/jour-sombre.svg");
+    border: white;
+}
+
+.previsions div.selected {
+    border: 2px solid white;
+}
+
+.informations-meteo{    
+    text-shadow: 1px 1px 2px #222222;
+}

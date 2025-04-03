@@ -1,3 +1,37 @@
+function getTargetDate() {
+    const now = new Date();
+    const target = new Date();
+
+    if (now.getHours() >= 19) {
+        target.setDate(target.getDate() + 1);
+    }
+
+    target.setHours(0, 0, 0, 0);
+    return target;
+}
+
+function shouldUpdateAt() {
+    const now = new Date();
+    const hour = now.getHours();
+    return hour < 19 ? 19 : 24;
+}
+
+function scheduleNextUpdate(calendar) {
+    const now = new Date();
+    const targetHour = shouldUpdateAt();
+    const nextUpdate = new Date(now);
+
+    nextUpdate.setHours(targetHour, 0, 0, 0);
+
+    if (targetHour === 24) nextUpdate.setDate(now.getDate() + 1);
+
+    const delay = nextUpdate - now;
+    setTimeout(() => {
+        loadTodayCalendar();
+        scheduleNextUpdate(calendar);
+    }, delay);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     function getURLParam(param) {
         let urlParams = new URLSearchParams(window.location.search);
@@ -11,22 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
         groupeSelect.value = selectedGroup;
     }
 
-    function updateDayAt19H(calendar) {
-        let now = new Date();
-        let targetHour = 19;
-        let timeUntilUpdate = ((targetHour - now.getHours()) * 60 * 60 * 1000)
-            - (now.getMinutes() * 60 * 1000) - (now.getSeconds() * 1000);
-
-        if (timeUntilUpdate < 0) {
-            timeUntilUpdate += 24 * 60 * 60 * 1000;
-        }
-
-        setTimeout(() => {
-            loadTodayCalendar();
-            updateDayAt19H(calendar);
-        }, timeUntilUpdate);
-    }
-
     window.loadTodayCalendar = function () {
         let githubICSUrl = `https://raw.githubusercontent.com/TORCHIN-Maxence-24020376/EDT/main/edt_data/${selectedGroup}.ics`;
 
@@ -34,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.ok ? response.text() : Promise.reject("Erreur de chargement"))
             .then(data => {
                 let events = parseICS(data);
-
                 let calendarEl = document.getElementById("calendar");
                 let calendar = new FullCalendar.Calendar(calendarEl, {
                     locale: "fr",
@@ -46,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     allDaySlot: false,
                     expandRows: true,
                     events: events,
+
 
                     eventDidMount: function (info) {
                         let salle = info.event.extendedProps ? info.event.extendedProps.salle : null;
@@ -92,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         }
             
                         // Appliquer la classe Examen
-                        if (info.event.title.includes("Examen") || info.event.title.includes("Soutenance") || info.event.title.includes("Présentation") || info.event.title.includes("Evaluation")) {
+                        if (info.event.title.includes("Examen") || info.event.title.includes("Soutenance") || info.event.title.includes("Evaluation")) {
                             info.el.classList.add("exam-event");
                         }
             
@@ -114,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 calendar.render();
-                updateDayAt19H(calendar);
+                calendar.gotoDate(getTargetDate());
             })
             .catch(error => console.error("❌ Erreur lors du chargement de l'EDT:", error));
     };

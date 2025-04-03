@@ -101,3 +101,15 @@ a{
 .overlay {
     background: linear-gradient(135deg, #ffffff, #f1f1f1);
 }
+
+.previsions div{
+    background-image: url("../IMAGES/jour_clair.svg");
+}
+
+.previsions div.selected {
+    border: 2px solid black;
+}
+
+.informations-meteo{    
+    text-shadow: 1px 1px 2px #ccc;
+}

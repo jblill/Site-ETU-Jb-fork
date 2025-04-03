@@ -225,3 +225,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 });
+
+function afficheSalle(salleURL) {
+    localStorage.setItem("salleCiblee", salleURL);
+    
+    redirectTo(salleURL, false);
+}
+
+function redirectTo(url, newTab = true) {
+    if (url === "https://www.google.com/") {
+        setTimeout(() => {
+            if (newTab) {
+                window.open(url, '_blank');
+            } else {
+                window.location.href = url;
+            }
+        }, 500);
+    } else {
+        if (newTab) {
+            window.open(url, '_blank');
+        } else {
+            window.location.href = url;
+        }
+    }
+}

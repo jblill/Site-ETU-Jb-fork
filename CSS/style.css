@@ -45,11 +45,12 @@ nav {
     display: flex;
     align-items: center;
     gap: 20px;
+    height: 100%;
 }
 
 .options{
     display: flex;
-    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .navigation {
@@ -328,19 +329,31 @@ h1 {
     margin-top: 30px;
     text-align: left;
     line-height: 2em;
+    display: flex;
+    padding: 8px;
 }
 
 #sous-menu{
     display: none;
 }
-  
+
 .overlay div {
-    padding: 8px;
     text-decoration: none;
     display: block;
     transition: 0.3s;
 }
 
+.liens-principaux{
+    display: flex !important;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.liens-principaux div{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
   
 .overlay .closebtn {
     position: absolute;
@@ -491,6 +504,7 @@ iframe{
     justify-content: space-between;
 }
 
+
 .mega-menu {
     position: fixed;
     top: 100px;
@@ -531,6 +545,10 @@ h4{
     font-size: 1.5em;
 }
 
+#navigation-contenu div ul {
+    line-height: 2em;
+}
+
 .navigation {
     position: relative;
 }
@@ -565,6 +583,178 @@ a{
     transition: all ease-in-out 0.3s;
 }
 
+.salle-info {
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 5px;
+}
+#ent:hover{
+    background-color: #0065e5;
+    color: white;
+}
+
+#ametice:hover{
+    background-color: #5a0cb9;
+    color: white;
+}
+
+#ent:active{
+    background-color: #004298;
+}
+
+#ametice:active{
+    background-color: #370771;
+}
+
+#mails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mails{
+    width: 30px;
+    height: 20px;
+    margin: 10px;
+}
+
+#edt-du-jour{
+    width: 50%;
+    height: 100%;
+    overflow: scroll;
+    height: 80vh;
+    border-radius: 20px;
+}
+
+#meteo{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    width: 80%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.previsions{
+    width: 80%;
+    display: flex;
+    gap: 5px;
+}
+
+#jour1, #jour2, #jour3, #jour4, #jour5, #jour6, #jour7 {
+  flex: 1;
+  height: 150px;
+  text-align: center;
+}
+  
+.Container-meteo{
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.informations-meteo {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 30px 40px;
+    width: 350px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 88%;
+    transition: all ease-in-out 0.3s;
+}
+
+.meteo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+}
+  
+.meteo-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+  
+.meteo-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    opacity: 0.8;
+}
+
+#meteo-logo{
+    font-size: 1.5em;
+}
+
+#meteo-date{
+    font-size: 1.5em;
+}
+
+.previsions div.selected {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.previsions div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 1em;
+    padding: 10px;
+}
+
+@media (max-width: 940px) {
+    .logo{
+        width: 30px;
+        height: 30px;
+        margin: 15px;
+    }
+    .navigation a {
+        font-size: 1em;
+    }
+    .previsions {
+        overflow-x: scroll;
+    }
+    .informations-meteo {
+        border-bottom-right-radius: 0px;
+    }
+    .meteo-header {
+        font-size: 1em;
+    }
+      
+    .meteo-main {
+        font-size: 1em;
+    }
+    .meteo-footer {
+        font-size: 0.8em;
+    }
+    #meteo {
+        width: 100%;
+    }
+    .previsions {
+        width: 100%;
+    }
+    #edt-du-jour{
+        width: 100%;
+    }
+}
+
 @media (max-width: 792px) {
     .mega-menu{
         flex-direction: column;
@@ -587,8 +777,12 @@ a{
     .disparait{
         display: none;
     }
+    .options{
+        display: none;
+    }
     .respons{
-        display: block;
+        display: flex;
+        align-items: center;
     }
     footer{
         flex-direction: column;
@@ -609,18 +803,9 @@ a{
     #clock{
         display: none;
     }
-    .navigation{
-        height: 20px;
-    }
     header{
         height: 5em;
     }
-}
-
-.salle-info {
-    font-size: 0.9em;
-    text-align: center;
-    margin-top: 5px;
 }
 
 @media (max-width: 1280px) {
@@ -632,40 +817,6 @@ a{
     }
     
 }
-
-#ent:hover{
-    background-color: #0065e5;
-    color: white;
-}
-
-#ametice:hover{
-    background-color: #5a0cb9;
-    color: white;
-}
-
-#ent:active{
-    background-color: #004298;
-}
-
-#ametice:active{
-    background-color: #370771;
-}
-
-#sous-navbar{
-    border-radius: 12px;
-    background-color: #00d4aa;
-    position: absolute;
-    bottom: -1em;
-    left: 50%;
-    transform: translateX(-50%);
-    right: 50%;
-    height: 50px;
-    width: 800px;
-}
-
-
-
-
 
 
 

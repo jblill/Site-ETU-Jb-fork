@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // Appliquer la classe Examen
-            if (info.event.title.includes("Examen") || info.event.title.includes("Soutenance") || info.event.title.includes("Présentation") || info.event.title.includes("Evaluation")) {
+            if (info.event.title.includes("Examen") || info.event.title.includes("Soutenance") || info.event.title.includes("Evaluation")) {
                 info.el.classList.add("exam-event");
             }
 

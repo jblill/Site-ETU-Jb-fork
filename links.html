@@ -21,16 +21,23 @@ Informatique.">
       </div>
 <!-- Barre de navigation -->
 <header id="main-header">
-    <div class="disparait options">
+    <div class="options">
         <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
         <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg" alt="Emploi du temps"></a>
+        <div id="mails">
+            <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail"><img class="logo mails" src="IMAGES/gmail.svg" alt="gmail"></a>
+            <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook"><img class="logo mails" src="IMAGES/outlook.svg" alt="outlook"></a>
+        </div>
     </div>
     <nav>
         <!-- Barre de Navigation téléphone -->
         <div class="tel-header">
             <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo" src="IMAGES/sommaire-logo.svg" alt="Logo affichant le sommaire"></button>
             <div id="clock"></div>
-            <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
+            <div class="respons">
+                <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
+                <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
+            </div>
         </div>
         <!-- Barre de Navigation Ordinateur-->
         <div class="navigation">
@@ -59,7 +66,7 @@ Informatique.">
             <li><a href="links.html">🖇️Liens utiles</a></li>
             <li><a href="logiciels.html">💿Logiciels utiles</a></li>
             <li><a href="carte.html">🔌Carte des prises</a></li>
-            <li><a href="carte.html#Selection-salle">🛜Connexion réseau</a></li>
+            <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
         </ul>
         
         <p class="tkt-frr">.</p>
@@ -94,8 +101,16 @@ Informatique.">
 <section id="myNav" class="overlay">
     <button class="closebtn" onclick="closeNav()">&times;</button>
     <div class="overlay-content">
-        <a href="index.html">Accueil</a><br>
-        <a href="edt.html">Voir mon EDT</a><br>
+        <div class="liens-principaux">
+            <div>
+                <a href="index.html">Accueil</a>
+                <a href="edt.html">Voir mon EDT</a>
+            </div>
+            <div>
+                <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail">Gmail</a>
+                <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook">Outlook</a>
+            </div>
+        </div>
         <hr>
         <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
         <ul id="sous-menu">
@@ -103,8 +118,8 @@ Informatique.">
             <li><a href="links.html">🖇️Liens utiles</a></li>
             <li><a href="logiciels.html">💿Logiciels utiles</a></li>
             <li><a href="carte.html">🔌Carte des prises</a></li>
-            <li><a href="carte.html#Selection-salle">🛜Connexion réseau</a></li>
-        </ul> <br>
+            <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+        </ul>
         <hr>
         <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
         <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a>
@@ -112,7 +127,7 @@ Informatique.">
 </section>
 
 <!--Section dédiée aux liens utiles au BUT Informatique.-->
-<h1 id="Liens">Liens Utiles</h1>
+<h1>Liens Utiles</h1>
 <section class="Container">
     <a class="Site" target="_blank" href="https://labtech.univ-amu.fr/portal/webclient/#/launchitems"
        title="Machines virtuelles IUT">
@@ -206,7 +221,7 @@ Informatique.">
         <p class="info">Service de tableur en ligne.</p>
     </a>
 
-    <a class="Site" target="_blank" href="https://livesql.oracle.com/ords/f?p=590:1000" title="Site pour opérer avec les bases de données">
+    <a class="Site" target="_blank" href="https://livesql.oracle.com/next/" title="Site pour opérer avec les bases de données">
         <p class="name">Live SQL</p>
         <p class="info">Service en ligne SQL Oracle.</p>
     </a>
@@ -224,7 +239,7 @@ Informatique.">
     <section>
         <h3>Apporter ma contribution</h3>
         <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
-        <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
+        <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
     </section>
 
     <section>

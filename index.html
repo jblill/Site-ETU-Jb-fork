@@ -21,16 +21,24 @@
       </div>
 <!-- Barre de navigation -->
     <header id="main-header">
-        <div class="disparait options">
+        <div class="options">
             <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
             <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg" alt="Emploi du temps"></a>
+            <div id="mails">
+                <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail"><img class="logo mails" src="IMAGES/gmail.svg" alt="gmail"></a>
+                <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook"><img class="logo mails" src="IMAGES/outlook.svg" alt="outlook"></a>
+            </div>
+
         </div>
         <nav>
             <!-- Barre de Navigation téléphone -->
             <div class="tel-header">
                 <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo" src="IMAGES/sommaire-logo.svg" alt="Logo affichant le sommaire"></button>
                 <div id="clock"></div>
-                <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
+                <div class="respons">
+                    <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
+                    <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
+                </div>
             </div>
             <!-- Barre de Navigation Ordinateur-->
             <div class="navigation">
@@ -46,15 +54,6 @@
         </div>
     </header>
 
-    <!-- Pour une prochaine mise à jour
-    <section id="sous-navbar">
-        <div></div>
-        <article>
-        </article>
-        <div></div>
-    </section>
-    -->
-
     <section id="navigation-contenu" class="mega-menu">
         <div>
             <ul>
@@ -69,7 +68,7 @@
                 <li><a href="links.html">🖇️Liens utiles</a></li>
                 <li><a href="logiciels.html">💿Logiciels utiles</a></li>
                 <li><a href="carte.html">🔌Carte des prises</a></li>
-                <li><a href="carte.html#Selection-salle">🛜Connexion réseau</a></li>
+                <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
             </ul>
             <p class="tkt-frr">.</p>
         </div>
@@ -106,8 +105,17 @@
     <section id="myNav" class="overlay">
         <button class="closebtn" onclick="closeNav()">&times;</button>
         <div class="overlay-content">
-            <a href="index.html">Accueil</a><br>
-            <a href="edt.html">Voir mon EDT</a><br>
+            <div class="liens-principaux">
+                <div>
+                    <a href="index.html">Accueil</a>
+                    <a href="edt.html">Voir mon EDT</a>
+                </div>
+                <div>
+                    <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail">Gmail</a>
+                    <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook">Outlook</a>
+                </div>
+            </div>
+                    
             <hr>
             <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
             <ul id="sous-menu">
@@ -115,10 +123,10 @@
                 <li><a href="links.html">🖇️Liens utiles</a></li>
                 <li><a href="logiciels.html">💿Logiciels utiles</a></li>
                 <li><a href="carte.html">🔌Carte des prises</a></li>
-                <li><a href="carte.html#Selection-salle">🛜Connexion réseau</a></li>
-            </ul> <br>
+                <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+            </ul>
             <hr>
-            <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
+            <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a><br>
             <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a>
         </div>
     </section>
@@ -132,7 +140,83 @@
 
     </section>
     <hr>
-
+    <h2>Tableau de bord étudiant</h2>
+    
+    <section class="Container Container-meteo">
+        <div id="meteo">
+            <div class="informations-meteo">
+                <div class="meteo-header">
+                  <p id="meteo-date"></p>
+                  <p id="meteo-logo"></p>
+                </div>
+                <div class="meteo-main">
+                  <p id="temperature"></p>
+                  <p id="nom"></p>
+                  <p><span id="vent"></span>  <span id="precipitations"></span></p>
+                </div>
+                <div class="meteo-footer">
+                  <p id="temp_max"></p>
+                  <p id="temp_min"></p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <section class="Container Container-meteo">
+        <div class="previsions">
+            <div id="jour1"><div id="Jour1Date"></div></div>
+            <div id="jour2"><div id="Jour2Date"></div></div>
+            <div id="jour3"><div id="Jour3Date"></div></div>
+            <div id="jour4"><div id="Jour4Date"></div></div>
+            <div id="jour5"><div id="Jour5Date"></div></div>
+            <div id="jour6"><div id="Jour6Date"></div></div>
+            <div id="jour7"><div id="Jour7Date"></div></div>
+        </div>
+    </section>
+      
+    <section class="Container">
+        <iframe title="emploi du temps du jour" src="today.html" id="edt-du-jour"></iframe>
+        <article class="Container" id="Selection-salle">
+            <h1>Sélection Connexion</h1>
+            <div class="selection-menu">
+                <label for="select-salle">Choisissez une salle :</label>
+                <select id="select-salle" class="select-input" onchange="updateReseauConfig()">
+                    <option value="">-- Sélectionnez une salle --</option>
+                    <option value="I002">I002</option>
+                    <option value="I004">I004</option>
+                    <option value="I009">I009</option>
+                    <option value="I010">I010</option>
+                    <option value="I102">I102</option>
+                    <option value="I104">I104</option>
+                    <option value="I106">I106</option>
+                </select>
+            </div>
+            
+            <div id="réseau-info" class="réseau-info">
+                <h2>Configuration Réseau</h2>
+                <form>
+                    <div>
+                        <label for="ip">Adresse IP</label>
+                        <input id="ip" type="text" class="champ-entree" readonly>
+                    </div>
+                    <div>
+                        <label for="Passerelle">Passerelle</label>
+                        <input id="Passerelle" type="text" class="champ-entree" readonly>
+                    </div>
+                    <div>
+                        <label for="dns1">DNS préféré</label>
+                        <input id="dns1" type="text" class="champ-entree" value="10.193.51.5" readonly>
+                    </div>
+                    <div>
+                        <label for="dns2">Autre DNS</label>
+                        <input id="dns2" type="text" class="champ-entree" value="139.124.1.2" readonly>
+                    </div>
+                </form>
+            </div>
+        </article>
+    </section>
+    
+    
 <!--Mise en veille-->
     <div id="veille" style="display: none;">
         <h1>Zone de veille</h1>
@@ -142,12 +226,13 @@
     </div>
 
 <script src="JAVASCRIPT/main.js"></script>
+<script src="JAVASCRIPT/meteo.js"></script>
 
 <footer>
     <section>
         <h3>Apporter ma contribution</h3>
         <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
-        <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
+        <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
     </section>
 
     <section>

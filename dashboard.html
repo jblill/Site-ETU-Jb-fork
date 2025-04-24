@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cette partie du Site ETU est dédiée aux liens utiles durant ce cursus de BUT
+Informatique.">
+    <title>Liens Utiles ETU</title>
+    <link id="theme-link" rel="stylesheet" href="CSS/clair.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="shortcut icon" href="IMAGES/Logo_Site.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="chargement" class="app">
+        <div class="circle">
+          <div class="border-circle border-circle-up"></div>
+          <div class="border-circle border-circle-left"></div>
+          <div class="border-circle border-circle-right"></div>
+          <div class="border-circle border-circle-down"></div>
+        </div>
+      </div>
+<!-- Barre de navigation -->
+<header id="main-header">
+    <div class="options">
+        <a href="index.html" title="Retour à l'accueil"><img src="IMAGES/home.svg" alt="accueil" class="logo"></a>
+        <a href="edt.html" title="Accéder à son emploi du temps"><img class="logo" src="IMAGES/calendar.svg" alt="Emploi du temps"></a>
+        <div id="mails">
+            <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail"><img class="logo mails" src="IMAGES/gmail.svg" alt="gmail"></a>
+            <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook"><img class="logo mails" src="IMAGES/outlook.svg" alt="outlook"></a>
+        </div>
+    </div>
+    <nav>
+        <!-- Barre de Navigation téléphone -->
+        <div class="tel-header">
+            <button class="respons" onclick="togglePanel('myNav', 'myTheme')"><img class="logo" src="IMAGES/sommaire-logo.svg" alt="Logo affichant le sommaire"></button>
+            <div id="clock"></div>
+            <div class="respons">
+                <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
+                <button class="respons" onclick="togglePanel('myTheme', 'myNav')"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></button>
+            </div>
+        </div>
+        <!-- Barre de Navigation Ordinateur-->
+        <div class="navigation">
+            <a href="#" id="navigation">Navigation</a>
+            <a id="ent" href="https://ent.univ-amu.fr/" target="_blank">ENT</a>
+            <a id="ametice" href="https://ametice.univ-amu.fr/" target="_blank">AMeTICE</a>
+            <!--Rajouter des liens ici-->
+        </div>
+    </nav>
+    <div class="disparait options">
+        <a href="#modeVeille" title="Pour reposer les écrans OLED" onclick="toggleFullScreen()"><img src="IMAGES/veille.svg" class="logo" alt="Veille"></a>
+        <a href="#" id="theme"><img class="logo" src="IMAGES/soleil-logo.svg" alt="Logo affichant le changement de thème"></a>
+    </div>
+</header>
+<section id="navigation-contenu" class="mega-menu">
+    <div>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="edt.html">Voir mon EDT</a></li>
+        </ul>
+    </div>
+    <div>
+        <h4>AUTRES PAGES</h4>
+        <ul>
+            <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
+            <li><a href="links.html">🖇️Liens utiles</a></li>
+            <li><a href="logiciels.html">💿Logiciels utiles</a></li>
+            <li><a href="carte.html">🔌Carte des prises</a></li>
+            <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+        </ul>
+        
+        <p class="tkt-frr">.</p>
+    </div>
+    <div>
+        <h4>LIENS UTILES</h4>
+        <p>Grace à cette page, vous pouvez accéder à une grande quantité de liens utiles pour le cursus de BUT Informatique à l'IUT d'Aix-Marseille.</p>
+    </div>
+</section>
+<section id="theme-contenu" class="mega-menu">
+    <div><h3>Changer de thème</h3></div>
+    
+    <article>
+        <div onclick="changeTheme('CSS/clair.css')">Clair</div>
+        <div onclick="changeTheme('CSS/sombre.css')">Sombre</div>
+        <div onclick="changeTheme('CSS/AMOLED.css')">AMOLED</div>
+    </article>
+    <p class="tkt-frr">.</p>
+</section>
+
+<!-- Changement de thème -->
+<section id="myTheme" class="overlay">
+    <button class="closebtn" onclick="closeTheme()">&times;</button>
+    <div class="overlay-content">
+        <p>Changer de thème</p>
+        <div class="menu-item" onclick="changeTheme('CSS/clair.css')">Clair</div>
+        <div class="menu-item" onclick="changeTheme('CSS/sombre.css')">Sombre</div>
+        <div class="menu-item" onclick="changeTheme('CSS/AMOLED.css')">AMOLED</div>
+    </div>
+</section>
+
+<section id="myNav" class="overlay">
+    <button class="closebtn" onclick="closeNav()">&times;</button>
+    <div class="overlay-content">
+        <div class="liens-principaux">
+            <div>
+                <a href="index.html">Accueil</a>
+                <a href="edt.html">Voir mon EDT</a>
+            </div>
+            <div>
+                <a href="https://mail.google.com/mail/u/0/?pli=1#inbox" target="_blank" title="Redirection vers la messagerie Gmail">Gmail</a>
+                <a href="https://outlook.office.com/mail/" target="_blank" title="Redirection vers la messagerie Outlook">Outlook</a>
+            </div>
+        </div>
+        <hr>
+        <a href="#" onclick="toggleSousMenu()">Navigation ▼</a>
+        <ul id="sous-menu">
+            <li><a href="prof.html">👨‍🏫Sites des profs</a></li>
+            <li><a href="links.html">🖇️Liens utiles</a></li>
+            <li><a href="logiciels.html">💿Logiciels utiles</a></li>
+            <li><a href="carte.html">🔌Carte des prises</a></li>
+            <li><a href="index.html#Selection-salle">🛜Connexion réseau</a></li>
+        </ul>
+        <hr>
+        <a href="https://ent.univ-amu.fr/" target="_blank">ENT</a> <br>
+        <a href="https://ametice.univ-amu.fr" target="_blank">AMeTICE</a>
+    </div>
+</section>
+
+<!--Section dédiée aux liens utiles au BUT Informatique.-->
+<h1>Liens Utiles</h1>
+<h2>Ajouter un label</h2>
+<input type="text" id="label-input" placeholder="Entrez un label...">
+<button onclick="addLabel()">Ajouter</button>
+<ul id="label-list"></ul> <!-- Pour afficher les labels -->
+<script>
+    async function addLabel() {
+  const labelText = document.getElementById('label-input').value.trim();
+  if (!labelText) return alert("Entrez un texte");
+
+  // Récupère l'utilisateur connecté
+  const { data: { user }, error: userError } = await client.auth.getUser();
+  if (userError || !user) {
+    alert("Utilisateur non connecté");
+    return;
+  }
+
+  // Insère dans la table "labels"
+  const { error } = await client.from("labels").insert([{
+    label: labelText,
+    user_id: user.id
+  }]);
+
+  if (error) {
+    alert("Erreur lors de l'ajout : " + error.message);
+  } else {
+    alert("Label ajouté !");
+    document.getElementById("label-input").value = "";
+    loadLabels(); // rafraîchit la liste
+  }
+}
+
+// Pour afficher les labels de l'utilisateur
+async function loadLabels() {
+  const { data: { user } } = await client.auth.getUser();
+  const { data, error } = await client
+    .from("labels")
+    .select("label")
+    .eq("user_id", user.id);
+
+  const list = document.getElementById("label-list");
+  list.innerHTML = data.map(l => `<li>${l.label}</li>`).join("");
+}
+
+loadLabels();
+
+</script>
+<section class="Container">
+    <a class="Site" target="_blank" href="https://labtech.univ-amu.fr/portal/webclient/#/launchitems"
+       title="Machines virtuelles IUT">
+        <p class="name">VDI</p>
+        <p class="info">Service de poste de travail AMU virtualisé.</p>
+    </a>
+    <a class="Site" target="_blank" href="https://cplusplus.com/reference/cctype/?kw=cctype" title="Prédicats C++">
+        <p class="name">Prédicats C++</p>
+        <p class="info">Liste des prédicats du langage C++.</p>
+    </a>
+    <a class="Site" target="_blank" href="https://chatgpt.com/" title="Si besoin d'explications">
+        <p class="name">Chat GPT</p>
+        <p class="info">Intelligence Artificielle.</p>
+    </a>
+    <a class="Site" target="_blank" href="https://gemini.google.com/app?hl=fr" title="Si besoin d'explications">
+        <p class="name">Gemini</p>
+        <p class="info">Intelligence Artificielle (Google).</p>
+
+    </a>
+    <a class="Site" target="_blank" href="https://claude.ai/" title="Si besoin d'explications">
+        <p class="name">Claude</p>
+        <p class="info">Intelligence Artificielle.</p>
+
+    </a>
+    <a class="Site" target="_blank" href="https://GitHub.com/" title="GitHub">
+        <p class="name">GitHub</p>
+        <p class="info">Service en ligne d'hébergement de code.</p>
+    </a>
+    <a class="Site" target="_blank" href="https://www3.ntu.edu.sg/home/ehchua/programming/index.html">
+        <p class="name">YAIP Java</p>
+        <p class="info">Exercices de Java pour la ressource R2.01.</p>
+    </a>
+    <a class="Site" target="_blank" href="https://distrosea.com/fr/" title="Distributions Linux">
+        <p class="name">Distrosea</p>
+        <p class="info">Outil d'essai de distribution Linux.</p>
+    </a>
+    <a class="Site" target="_blank" href="https://www.w3schools.com/howto/" title="Tutoriels web">
+        <p class="name">w3schools</p>
+        <p class="info">Site web éducatif pour l'apprentissage informatique.</p>
+    </a>
+    <a class="Site" target="_blank" href="https://discord.com/channels/@me" title="Pour communiquer">
+        <p class="name">Discord</p>
+        <p class="info">Plateforme de messagerie instantanée.</p>
+    </a>
+
+    <a class="Site" target="_blank" href="https://www.figma.com/fr-fr/" title="Design web">
+        <p class="name">Figma</p>
+        <p class="info">Editeur de graphiques et outil de prototypage.</p>
+    </a>
+    <a class="Site" target="_blank" href="https://www.whitescreen.online/fr/ecran-fausse-mise-a-jour-windows-11/"
+       title="Fausse mise à jour">
+        <p class="name">Whitescreen</p>
+        <p class="info">Outil de test d'écran.</p>
+    </a>
+    <a class="Site" target="_blank" href="https://secb.manett-ondemand.cityway.fr/SECB/fr-FR" title="Service bus">
+        <p class="name">Bus à la demande</p>
+        <p class="info">Transport à la demande de Salon Étang Côte Bleue.</p>
+    </a>
+
+    <a class="Site" target="_blank" href="https://graphonline.top/fr" title="Outil de visualisation des graphes">
+        <p class="name">GraphOnline</p>
+        <p class="info">Outil de visualisation des graphes.</p>
+    </a>
+
+    <a class="Site" target="_blank" href="https://drive.google.com/drive/my-drive?hl=fr" title="Pour partager des
+        fichiers">
+        <p class="name">Google Drive</p>
+        <p class="info">Service de stockage cloud et suite bureautique.</p>
+    </a>
+    <a class="Site" target="_blank" href="https://docs.google.com/document/?usp=docs_home&hl=fr" title="Créer et
+        partager des documents">
+        <p class="name">Google Docs</p>
+        <p class="info">Service de traitement de texte en ligne.</p>
+    </a>
+
+    <a class="Site" target="_blank" href="https://docs.google.com/presentation/?usp=slides_home&hl=fr" title="Créer
+         et partager des présentations">
+        <p class="name">Google Slides</p>
+        <p class="info">Service de présentation en ligne.</p>
+    </a>
+
+    <a class="Site" target="_blank" href="https://docs.google.com/forms/?usp=forms_home&hl=fr" title="Créer et
+        partager des formulaires">
+        <p class="name">Google Forms</p>
+        <p class="info">Service d'administration d'enquêtes en ligne.</p>
+    </a>
+
+    <a class="Site" target="_blank" href="https://docs.google.com/spreadsheets/?usp=sheets_home&hl=fr" title="Créer
+        et partager des tableurs">
+        <p class="name">Google Sheets</p>
+        <p class="info">Service de tableur en ligne.</p>
+    </a>
+
+    <a class="Site" target="_blank" href="https://livesql.oracle.com/next/" title="Site pour opérer avec les bases de données">
+        <p class="name">Live SQL</p>
+        <p class="info">Service en ligne SQL Oracle.</p>
+    </a>
+</section>
+
+<!--Mise en veille-->
+<div id="veille" style="display: none;">
+    <h1>Zone de veille</h1>
+    <p>Cette zone est faite pour reposer les écrans OLED</p>
+    <p>(Apparait et disparait si vous vous mettez en plein écran)</p>
+    <div id="modeVeille" style="height: calc(100vh + 200px);"></div>
+</div>
+<script src="JAVASCRIPT/main.js"></script>
+<footer>
+    <section>
+        <h3>Apporter ma contribution</h3>
+        <p>Vous pouvez apporter votre contribution à ce projet via le lien GitHub en cliquant sur le logo.</p>
+        <a href="https://GitHub.com/TORCHIN-Maxence-24020376/Site-ETU" target="_blank" title="Lien vers le repo GitHub"><img src="IMAGES/GitHub.svg" alt="GitHub" id="GitHub"></a>
+    </section>
+
+    <section>
+        <h3>Description</h3>
+        <p>Site de ressources du département Informatique de l'IUT d'Aix-en-Provence. Réalisé par Maxence TORCHIN et Cyril TAMINE, 2024.</p>
+        <p>Ce site contient tout ce qui vous sera utiles lors de vos années de BUT info à Aix-en-Provence.</p>
+    </section>
+    
+    <section>
+        <h3>Créateurs</h3>
+        <iframe title="signature TORCHIN Maxence" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/bleu.html"  style="height: 150px; width: 300px;"></iframe>
+        <iframe title="signature TAMINE Cyril" src="https://torchin-maxence-24020376.GitHub.io/signature/HTML/cyril.html" style="height: 150px; width: 300px;"></iframe>
+    </section>
+    
+</footer>
+
+
+</body>
+</html>

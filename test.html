@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemple Supabase Auth</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link rel="stylesheet" href="CSS/test.css">
+</head>
+<body>
+  <h1>Mon site avec Supabase Auth</h1>
+
+  <div>
+    <h2>Inscription</h2>
+    <input type="email" id="signup-email" placeholder="Email">
+    <input type="password" id="signup-password" placeholder="Mot de passe">
+    <input type="text" id="signup-username" placeholder="Pseudo">
+    <button onclick="signup()">Créer un compte</button>
+  </div>
+
+  <div>
+    <h2>Connexion</h2>
+    <input type="email" id="login-email" placeholder="Email">
+    <input type="password" id="login-password" placeholder="Mot de passe">
+    <button onclick="login()">Se connecter</button>
+  </div>
+
+  <div>
+    <h2>Utilisateur connecté :</h2>
+    <p id="user-info">Aucun</p>
+    <button onclick="logout()">Déconnexion</button>
+  </div>
+
+  <script>
+    // 🔧 Remplace par TES INFOS Supabase :
+    const supabaseUrl = 'https://vzhudrkctpwmuvktcxjz.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6aHVkcmtjdHB3bXV2a3RjeGp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQzNjU0MzUsImV4cCI6MjA1OTk0MTQzNX0.1kN-TxVwJw_lhtTcwn7XeFLrqHZZ9TzCEOjHS_Ip-G0';
+    const client = supabase.createClient(supabaseUrl, supabaseKey);
+
+    async function signup() {
+      const email = document.getElementById('signup-email').value;
+      const password = document.getElementById('signup-password').value;
+      const username = document.getElementById('signup-username').value;
+
+      const { data, error } = await client.auth.signUp({
+        email: email,
+        password: password
+      });
+
+      if (error) {
+        alert('Erreur inscription : ' + error.message);
+        return;
+      }
+
+      const user = data.user;
+      // Ajout dans la table "profiles"
+      await client.from('profiles').insert([{
+        id: user.id,
+        username: username
+      }]);
+
+      alert("Compte créé !");
+      updateUserInfo();
+    }
+
+    async function login() {
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      const { data, error } = await client.auth.signInWithPassword({
+        email: email,
+        password: password
+      });
+
+      if (error) {
+        alert('Erreur connexion : ' + error.message);
+        return;
+      }
+
+      alert("Connecté !");
+      updateUserInfo();
+    }
+
+    async function logout() {
+      await client.auth.signOut();
+      document.getElementById('user-info').innerText = 'Aucun';
+      alert("Déconnecté !");
+    }
+
+    async function updateUserInfo() {
+      const { data: { user } } = await client.auth.getUser();
+      if (user) {
+        const { data, error } = await client
+          .from('profiles')
+          .select('username')
+          .eq('id', user.id)
+          .single();
+
+        const username = data?.username || 'Inconnu';
+        document.getElementById('user-info').innerText = `${username} (${user.email})`;
+      } else {
+        document.getElementById('user-info').innerText = 'Aucun';
+      }
+    }
+
+    // Vérifie si déjà connecté au chargement
+    updateUserInfo();
+  </script>
+  <h2>Ajouter un dashboard_order</h2>
+  <input type="text" id="dashboard-input" placeholder="Entrez une valeur...">
+  <button onclick="adddashboard_order()">Ajouter</button>
+
+  <ul id="dashboard-list"></ul>
+  <script>
+    async function adddashboard_order() {
+      const dashboardText = document.getElementById('dashboard-input').value.trim();
+      if (!dashboardText) return alert("Entrez un texte");
+
+      // Récupérer l'utilisateur connecté
+      const { data: { user }, error: userError } = await client.auth.getUser();
+      if (userError || !user) {
+        alert("Utilisateur non connecté");
+        return;
+      }
+
+      // Insertion dans la table "dashboard"
+      const { error } = await client.from("dashboard").insert([{
+        dashboard_order: dashboardText,
+        user_id: user.id
+      }]);
+
+      if (error) {
+        alert("Erreur : " + error.message);
+      } else {
+        alert("Dashboard ajouté !");
+        document.getElementById("dashboard-input").value = "";
+        loaddashboard_orders();
+      }
+    }
+
+    async function loaddashboard_orders() {
+      const { data: { user } } = await client.auth.getUser();
+
+      const { data, error } = await client
+        .from("dashboard")
+        .select("dashboard_order")
+        .eq("user_id", user.id);
+
+      if (error) {
+        console.error("Erreur chargement :", error.message);
+        return;
+      }
+
+      const list = document.getElementById("dashboard-list");
+
+      if (!data || data.length === 0) {
+        list.innerHTML = "<li>Aucune donnée</li>";
+        return;
+      }
+
+      list.innerHTML = data.map(item => `<li>${item.dashboard_order}</li>`).join("");
+    }
+
+    loaddashboard_orders(); // Charger les données au lancement
+  </script>
+</body>
+</html>

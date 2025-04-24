@@ -1,0 +1,65 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxMoS2KcU8f-YwFnalyVZwdcY2c9cYRz2ltTG8RqHPiMF8FfafWopqxuUnkugzCplI51d_vRmAfGAT/pubhtml?widget=true&amp;headers=false"></iframe>
+        -->
+        <input type="file" id="uploadExcel" />
+        <pre id="output"></pre>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!--<script>
+    document.getElementById('uploadExcel').addEventListener('change', function(e) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const data = new Uint8Array(event.target.result);
+            const workbook = XLSX.read(data, { type: 'array' });
+            const sheetName = workbook.SheetNames[0];
+            const sheet = workbook.Sheets[sheetName];
+            const json = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+            document.getElementById('output').textContent = JSON.stringify(json, null, 2);
+        };
+        reader.readAsArrayBuffer(e.target.files[0]);
+    });
+    </script>-->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script>
+        const supabase = supabase.createClient(
+        "https://vzhudrkctpwmuvktcxjz.supabase.co", 
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6aHVkcmtjdHB3bXV2a3RjeGp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQzNjU0MzUsImV4cCI6MjA1OTk0MTQzNX0.1kN-TxVwJw_lhtTcwn7XeFLrqHZZ9TzCEOjHS_Ip-G0"
+        );
+
+        async function register(email, password) {
+            const { data, error } = await supabase.auth.signUp({
+                email: email,
+                password: password
+            });
+
+            if (error) {
+                console.error("Erreur :", error.message);
+            } else {
+                console.log("Utilisateur créé :", data);
+            }
+        }
+
+        async function login(email, password) {
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
+
+            if (error) {
+                console.error("Erreur :", error.message);
+            } else {
+                console.log("Connecté :", data);
+            }
+        }
+
+        const { data: { user } } = await supabase.auth.getUser();
+        console.log("Utilisateur actuel :", user);
+
+        await supabase.auth.signOut();
+
+    </script>
+    </body>
+</html>

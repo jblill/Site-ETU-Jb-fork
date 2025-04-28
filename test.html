@@ -34,7 +34,7 @@
     // 🔧 Remplace par TES INFOS Supabase :
     const supabaseUrl = 'https://vzhudrkctpwmuvktcxjz.supabase.co';
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6aHVkcmtjdHB3bXV2a3RjeGp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQzNjU0MzUsImV4cCI6MjA1OTk0MTQzNX0.1kN-TxVwJw_lhtTcwn7XeFLrqHZZ9TzCEOjHS_Ip-G0';
-    const client = supabase.createClient(supabaseUrl, supabaseKey);
+    const client = supabase.createClient(supabaseUrl, supabaseKey, { auth: { persistSession: true, autoRefreshToken: true }});
 
     async function signup() {
       const email = document.getElementById('signup-email').value;
@@ -162,5 +162,6 @@
 
     loaddashboard_orders(); // Charger les données au lancement
   </script>
+  <a class="btn" href="notes.html"> Accueil </a>
 </body>
 </html>

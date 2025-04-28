@@ -1,0 +1,72 @@
+const supabaseUrl = 'https://vzhudrkctpwmuvktcxjz.supabase.co'; // Ton URL Supabase
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6aHVkcmtjdHB3bXV2a3RjeGp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQzNjU0MzUsImV4cCI6MjA1OTk0MTQzNX0.1kN-TxVwJw_lhtTcwn7XeFLrqHZZ9TzCEOjHS_Ip-G0'; // Ta clé "anon"
+const client = supabase.createClient(supabaseUrl, supabaseKey);
+
+
+async function checkUser() {
+    const { data, error } = await client.auth.getUser();
+  
+    if (error || !data.user) {
+      console.error('Pas connecté ❌', error?.message);
+      alert('Tu dois être connecté pour utiliser cette page.');
+      window.location.href = 'login.html';
+    } else {
+      console.log('Connecté ✅', data.user.email);
+    }
+  }
+  
+  checkUser();
+  
+
+
+
+// Fonction pour sauvegarder les notes
+async function saveNotes() {
+  const user = (await client.auth.getUser()).data.user;
+  if (!user) {
+    alert('Pas connecté.');
+    return;
+  }
+
+  const s101Value = parseFloat(document.getElementById('s101').value) || 0;
+
+  const { data, error } = await client
+    .from('notes_s1')
+    .upsert([
+      {
+        id: user.id,
+        S101: s101Value
+      }
+    ]);
+
+  if (error) {
+    console.error('Erreur enregistrement:', error);
+    alert('Erreur : ' + error.message);
+  } else {
+    console.log('Succès:', data);
+    alert('Notes enregistrées !');
+  }
+}
+
+// Fonction pour charger les notes
+async function loadNotes() {
+  const user = (await client.auth.getUser()).data.user;
+  if (!user) {
+    alert('Pas connecté.');
+    return;
+  }
+
+  const { data, error } = await client
+    .from('notes_s1')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  if (error) {
+    console.error('Erreur chargement:', error);
+    alert('Erreur : ' + error.message);
+  } else {
+    console.log('Données:', data);
+    document.getElementById('result').innerText = JSON.stringify(data, null, 2);
+  }
+}

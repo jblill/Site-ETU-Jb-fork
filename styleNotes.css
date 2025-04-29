@@ -22,4 +22,12 @@ table {
   tbody tr:hover {
     background-color: #e6f7ff;
   }
-  
+  table input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font: inherit;
+    padding: 0;
+    outline: none;
+  }

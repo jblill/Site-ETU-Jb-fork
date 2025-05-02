@@ -19,6 +19,36 @@ async function checkUser() {
   
 
 
+async function calculCoeff() {
+  let number = 1102; 
+  for (let i = 1; i <= 6; i++) {
+    const sValue = parseFloat(document.getElementById('s10'+i).value);
+    for (let j = number; j < 1700; j += 100) {
+      if (!isNaN(parseFloat(document.getElementById('C'+j).textContent)))
+        document.getElementById('N'+(j-1)).value = parseFloat(document.getElementById('C'+j).textContent);
+      else document.getElementById('N'+(j-1)).value = null;
+    }
+    number += 1;
+  }
+  for (let i = 101; i <= 112; i++) {
+    const sValue = parseFloat(document.getElementById('r'+i).value);
+    for (let j = number; j < 1700; j += 100) {
+      if (!isNaN(parseFloat(document.getElementById('C'+j).textContent)))
+        document.getElementById('N'+(j-1)).value = parseFloat(document.getElementById('C'+j).textContent);
+      else document.getElementById('N'+(j-1)).value = null;
+    }
+    number += 1;
+  }
+  const r1l1Value = parseFloat(document.getElementById('r1l1').value);
+  if (!isNaN(parseFloat(document.getElementById('C1120').textContent)))
+      document.getElementById('N1120').value = parseFloat(document.getElementById('C1120').textContent);
+  else document.getElementById('N'+(j-1)).value = null;
+  number += 1;
+}
+
+calculCoeff();
+
+
 
 // Fonction pour sauvegarder les notes
 async function saveNotes() {
@@ -89,4 +119,9 @@ async function loadNotes() {
     console.log('Données:', data);
     document.getElementById('result').innerText = JSON.stringify(data, null, 2);
   }
+  if (isNaN(parseFloat(document.getElementById('N1201').value))) { document.getElementById('N1106').value = "r"; }
+  else { document.getElementById('N1106').value = parseFloat(document.getElementById('N1201').value); }
+  document.getElementById('N1105').value = "155";
+  let ryriyr = parseFloat(document.getElementById('C1102').textContent);
+  console.log(ryriyr);
 }

@@ -22,27 +22,28 @@ async function checkUser() {
 async function calculCoeff() {
   let number = 1102; 
   for (let i = 1; i <= 6; i++) {
-    const sValue = parseFloat(document.getElementById('s10'+i).value);
-    for (let j = number; j < 1700; j += 100) {
-      if (!isNaN(parseFloat(document.getElementById('C'+j).textContent)))
-        document.getElementById('N'+(j-1)).value = parseFloat(document.getElementById('C'+j).textContent);
-      else document.getElementById('N'+(j-1)).value = null;
+    let note = parseFloat(document.getElementById('V'+(number-1)).value);
+    if (note >= 0 || note <= 20 || Number.isNaN) {
+      for (let j = number; j < 1700; j += 100) {
+        if ((!isNaN(parseFloat(document.getElementById('C'+j).textContent))) && (!Number.isNaN(note)))
+          document.getElementById('N'+(j-1)).value = (note/20) * parseFloat(document.getElementById('C'+j).textContent);
+        else document.getElementById('N'+(j-1)).value = null;
+      }
     }
+    else alert('Notes invalides');
     number += 1;
   }
   for (let i = 101; i <= 112; i++) {
-    const sValue = parseFloat(document.getElementById('r'+i).value);
     for (let j = number; j < 1700; j += 100) {
-      if (!isNaN(parseFloat(document.getElementById('C'+j).textContent)))
-        document.getElementById('N'+(j-1)).value = parseFloat(document.getElementById('C'+j).textContent);
+      if ((!isNaN(parseFloat(document.getElementById('C'+j).textContent))) && (!Number.isNaN(parseFloat(document.getElementById('V'+(number-1)).value))))
+        document.getElementById('N'+(j-1)).value = ((parseFloat(document.getElementById('V'+(number-1)).value))/20) * parseFloat(document.getElementById('C'+j).textContent);
       else document.getElementById('N'+(j-1)).value = null;
     }
     number += 1;
   }
-  const r1l1Value = parseFloat(document.getElementById('r1l1').value);
-  if (!isNaN(parseFloat(document.getElementById('C1120').textContent)))
-      document.getElementById('N1120').value = parseFloat(document.getElementById('C1120').textContent);
-  else document.getElementById('N'+(j-1)).value = null;
+  if ((!isNaN(parseFloat(document.getElementById('C1120').textContent))) && (!Number.isNaN(parseFloat(document.getElementById('V1120').value))))
+    document.getElementById('N1120').value = ((parseFloat(document.getElementById('V1120').value))/20) * parseFloat(document.getElementById('C1120').textContent);  
+  else document.getElementById('N1120').value = null;
   number += 1;
 }
 

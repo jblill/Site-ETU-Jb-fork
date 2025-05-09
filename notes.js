@@ -21,9 +21,9 @@ async function checkUser() {
 
 async function calculCoeff() {
   let number = 1102; 
-  for (let i = 1; i <= 6; i++) {
+  for (let number = 1102; number <= 1120; number++) {
     let note = parseFloat(document.getElementById('V'+(number-1)).value);
-    if (note >= 0 || note <= 20 || Number.isNaN) {
+    if ((note >= 0 && note <= 20) || Number.isNaN(note)) {
       for (let j = number; j < 1700; j += 100) {
         if ((!isNaN(parseFloat(document.getElementById('C'+j).textContent))) && (!Number.isNaN(note)))
           document.getElementById('N'+(j-1)).value = (note/20) * parseFloat(document.getElementById('C'+j).textContent);
@@ -31,23 +31,34 @@ async function calculCoeff() {
       }
     }
     else alert('Notes invalides');
-    number += 1;
   }
-  for (let i = 101; i <= 112; i++) {
-    for (let j = number; j < 1700; j += 100) {
-      if ((!isNaN(parseFloat(document.getElementById('C'+j).textContent))) && (!Number.isNaN(parseFloat(document.getElementById('V'+(number-1)).value))))
-        document.getElementById('N'+(j-1)).value = ((parseFloat(document.getElementById('V'+(number-1)).value))/20) * parseFloat(document.getElementById('C'+j).textContent);
-      else document.getElementById('N'+(j-1)).value = null;
-    }
-    number += 1;
-  }
-  if ((!isNaN(parseFloat(document.getElementById('C1120').textContent))) && (!Number.isNaN(parseFloat(document.getElementById('V1120').value))))
-    document.getElementById('N1120').value = ((parseFloat(document.getElementById('V1120').value))/20) * parseFloat(document.getElementById('C1120').textContent);  
-  else document.getElementById('N1120').value = null;
-  number += 1;
 }
 
+
+async function total() {
+  for (let i = 11; i <= 16; i++) {
+    let totalVal = 0;
+    for (let j = 1; j <= 20; j++) {
+      let id = 'N' + i + (j < 10 ? '0' : '') + j;
+      if (!isNaN(parseFloat(document.getElementById(id).value))) totalVal += parseFloat(document.getElementById(id).value);
+      console.log(totalVal);
+    }
+    document.getElementById('N'+i+'21').value = totalVal;
+  }
+}
+
+async function total2() {
+  for (let i = 11; i <= 16; i++) {
+    if (!isNaN(parseFloat(document.getElementById('N'+i+'21').value))) 
+      document.getElementById('N'+i+'22').value = parseFloat(document.getElementById('C'+i+'21').textContent) - parseFloat(document.getElementById('N'+i+'21').value);
+  }
+}
+
+
 calculCoeff();
+total();
+total2();
+total3();
 
 
 

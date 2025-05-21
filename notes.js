@@ -40,8 +40,8 @@ async function total() {
     let totalVal = 0;
     for (let j = 1; j <= 20; j++) {
       let id = 'N' + i + (j < 10 ? '0' : '') + j;
-      if (!isNaN(parseFloat(document.getElementById(id).value))) totalVal += parseFloat(document.getElementById(id).value);
-      console.log(totalVal);
+      if (!isNaN(parseFloat(document.getElementById(id).value))) 
+        totalVal += parseFloat(document.getElementById(id).value);
     }
     document.getElementById('N'+i+'21').value = totalVal;
   }
@@ -54,11 +54,61 @@ async function total2() {
   }
 }
 
+async function total3() {
+  for (let i = 11; i <= 16; i++) {
+    if (!isNaN(parseFloat(document.getElementById('N'+i+'21').value))) 
+      document.getElementById('N'+i+'23').value = parseFloat(document.getElementById('N'+i+'21').value) / parseFloat(document.getElementById('C'+i+'21').textContent) * 20;  }
+}
+
+async function total4() {
+  for (let i = 11; i <= 16; i++) {
+    let totalVal = 0;
+    for (let j = 1; j <= 20; j++) {
+      let id = 'N' + i + (j < 10 ? '0' : '') + j;
+      let id2 = 'C' + i + ((j+1) < 10 ? '0' : '') + (j+1);
+      if (!isNaN(parseFloat(document.getElementById(id).value))) {
+        totalVal += parseFloat(document.getElementById(id2).textContent);
+        //console.log(parseFloat(document.getElementById(id2).textContent));
+        }
+    }
+    //console.log(totalVal);
+    document.getElementById('N'+i+'24').value = totalVal;
+  }
+}
+
+async function total5() {
+  for (let i = 11; i <= 16; i++) {
+    if (!isNaN(parseFloat(document.getElementById('N'+i+'24').value))) 
+      document.getElementById('N'+i+'25').value = parseFloat(document.getElementById('C'+i+'21').textContent) - parseFloat(document.getElementById('N'+i+'24').value);
+  }
+}
+
+async function total6() {
+  for (let i = 11; i <= 16; i++) {
+    if (!isNaN(parseFloat(document.getElementById('N'+i+'21').value))) 
+      document.getElementById('N'+i+'26').value = ((document.getElementById('N'+i+'21').value) / (parseFloat(document.getElementById('C'+i+'21').textContent) - document.getElementById('N'+i+'25').value) * 20);  
+      //console.log((document.getElementById('N'+i+'21').value));
+  }
+}
+
+
+
 
 calculCoeff();
 total();
 total2();
 total3();
+
+async function rrrrr(params) {
+  calculCoeff();
+  total();
+  total2();
+  total3();
+  total4();
+  total5();
+  total6();
+
+}
 
 
 
@@ -69,18 +119,7 @@ async function saveNotes() {
     alert('Pas connecté.');
     return;
   }
-  for (let i = 1; i <= 6; i++) {
-    const sValue = parseFloat(document.getElementById('s10'+i).value);
-    const { data, error } = await client
-    .from('notes_s1')
-    .upsert([
-      {
-        id: user.id,
-        [`s10${i}`]: sValue
-      }
-    ]);
-  }
-  for (let i = 101; i <= 112; i++) {
+  for (let i = 101; i <= 119; i++) {
     const sValue = parseFloat(document.getElementById('r'+i).value);
     const { data, error } = await client
     .from('notes_s1')
@@ -91,15 +130,6 @@ async function saveNotes() {
       }
     ]);
   }
-  const r1l1Value = parseFloat(document.getElementById('r1l1').value);
-  const { data, error } = await client
-    .from('notes_s1')
-    .upsert([
-      {
-        id: user.id,
-        r1l1: r1l1Value
-      }
-    ]);
 
   if (error) {
     console.error('Erreur enregistrement:', error);
@@ -136,4 +166,5 @@ async function loadNotes() {
   document.getElementById('N1105').value = "155";
   let ryriyr = parseFloat(document.getElementById('C1102').textContent);
   console.log(ryriyr);
+  total1();
 }
